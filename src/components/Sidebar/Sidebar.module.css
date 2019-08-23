@@ -1,0 +1,62 @@
+.Sidebar {
+    width:20% ;
+    background-color:#0285c3 ;
+    position:fixed ;
+    top:0 ;
+    left:0 ;
+    height:100%;
+    color:white ;
+}
+.expandNav{
+    position: fixed;
+    display: inline;
+    left: 18%;
+    font-size: 1.5rem;
+    top: 6px;
+    cursor:pointer;
+}
+.songMobile{
+    display:none;
+}
+
+a {
+    color:inherit;
+    text-decoration: none;
+}
+
+.Sidebar ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    /* flex-grow: 10; */
+    width: 100%;
+}
+
+@media(max-width:768px) {
+    .songHeader {
+        display:none;
+    }
+    .songMobile{
+        display:block;
+    }
+    .expandNav {
+        left:16%;
+    }
+}
+
+@media(max-width:550px) {
+    .expandNav{
+        display:none;
+    }
+    .Sidebar{ 
+        margin-top:0;
+        width:10%;
+        display:flex;
+
+    }
+    .songMobile {
+        display:none;
+    }
+}

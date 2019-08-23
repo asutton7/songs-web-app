@@ -1,0 +1,112 @@
+.authContent {
+    width:80%;
+    margin-left:20%;
+    text-align: center;
+    overflow:hidden;
+}
+
+
+
+.authBox {
+    box-shadow: 2px 1px 0px #ccc;
+    width: 20%;
+    margin: 17.5% auto 0;
+    height:30%;
+    padding: 20px;
+    background-color:white;  
+}
+
+.logInButton {
+    color: white;
+    background-color: #2abaff;
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 0px #2abaff;
+}
+
+.logInButton     :hover{
+    border: black solid 1px;
+    background-color: black;
+    transition: .1s;
+}
+img {
+    width: 50%;
+    display:block;
+    margin:auto;
+    animation-name: rotateImage;
+    animation-duration: 4s;
+    -webkit-animation-name: rotateImage;
+    -webkit-animation-duration: 4s; 
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes rotateImage {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(180deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(0deg);}
+}
+
+@keyframes rotateImage {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(180deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(0deg);}
+}
+
+.googlebutton {
+    margin-top:15px;
+    height: 40px;
+    width:100%;
+    border-width: 0;
+    background: white;
+    color: #737373;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+    transition-property: background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    vertical-align: middle;
+    display:flex;
+    align-items:center;
+    border: 1px solid rgba(0,0,0,0.2);
+    line-height: 1px;
+    cursor:pointer;
+}
+
+.googlebutton:focus,
+.googlebutton:hover{
+    box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+    background-color:inherit;
+}
+
+.googlebutton:active{    
+    background-color: #e5e5e5;
+    box-shadow: none;
+    transition-duration: 10ms; 
+}
+
+.googlebuttonicon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 20%;
+
+  height: 18px;
+  box-sizing: border-box;
+}
+
+.googlebuttontext {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+  width:80%;
+}

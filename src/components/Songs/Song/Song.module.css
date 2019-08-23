@@ -1,0 +1,61 @@
+.Song {
+    box-shadow: 0px 1px 1px #Ccc;
+    width: 60%;
+    margin: 25px auto;
+    padding: 16px;
+    text-align:left;
+    border-radius: 5px;
+    background-color:white;
+    transition:.2s;
+}
+.Song:hover {
+    transform: scale(1.1);
+    transition: .2s;
+    cursor: pointer;
+}
+.Folder {
+    background-color: #0285c3;
+    color: white;
+}
+
+.optionsBtn {
+    position: relative;
+    top: 2%;
+    float: right;
+}
+.Song:hover .Lyrics {
+    max-height: 2.4rem;
+    transition:.1s ease-in;
+}
+
+.SongTitle {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size:1.5rem;
+    display:inline-block;
+}
+
+.Lyrics {
+    font-family: 'Lato', sans-serif;
+    max-height:1.2rem;
+    overflow:hidden;
+    transition: .1s ease-out;
+
+}
+
+.InfoRow {
+    display: flex;
+}
+
+.SongDate {
+    text-align: left;
+    order:0;
+    width:50%;
+}
+
+.SongID {
+    order: 1;
+    text-align: right;
+    width:50%;
+}

@@ -1,0 +1,70 @@
+.flexbox {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top:10px;
+    height:35%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.metText {
+    width:25%;
+    text-align:center;
+}
+
+.flexbox button {
+    background: none;
+    border: none;
+    width: 15%;
+    background-color: #0285c3;
+    color:white;
+    cursor:pointer;
+}
+
+.actBtns {
+    background: none;
+    border: none;
+    display:block;
+    margin:10px auto;
+    background-color: #0285c3;
+    color:white;
+    cursor:pointer; 
+    border-radius:5px;
+    width:65%;
+    padding:2px;
+    height:30px;
+}
+.denom {display:none;}
+.num {display:none;}
+
+button:hover {
+    background-color:#2abaff;
+    transition:.1s;
+}
+
+/*EXPANDED METRONOME*/
+:global(.maximize) .flexbox {
+    height: 15%;
+    justify-content: start;
+    margin-left: 20px;
+    width: 75%;
+    transition: 1s;
+}
+
+:global(.maximize) .actBtns {
+    margin: 10px 20px;
+    width: 42.5%;
+    height: 30px;
+    transition: 1s;
+}
+:global(.maximize) .num {
+    display:block;
+}
+:global(.maximize) .denom {
+    display:block;
+}
+

@@ -1,0 +1,129 @@
+.LyricInput {
+    height: 65%;
+    width: 70%;
+    background-color: white;
+    resize: none;
+    border: none;
+    box-shadow: inset 3px 2px 0px 0 #0285c3;
+    font-size: 1.5rem !important;
+    font:inherit;
+    padding: 25px;
+    border-top-left-radius: 20px;
+}
+.LyricInput:focus {
+    outline:none;
+}
+.LyricInput::-webkit-scrollbar {
+    background-color:transparent;
+    width:1%;
+}
+.LyricInput::-webkit-scrollbar-thumb {
+    background-color:#0285c3;
+    border-radius: 500px;
+}
+.Container {
+    height:100%;
+    margin:auto;
+    display:inline-block;
+    width:100%;
+}
+.RouteTest {
+    display:none;
+}
+
+.Header{
+    color: white;
+    text-align: left;
+    background-color: #0285c3;
+    white-space: nowrap;
+    width: 0%;
+    overflow: hidden;
+    padding: 10px;
+    padding-left: 15%;
+    border-top-right-radius: 100px;
+    box-shadow: 1px 1px 3px 0px white;
+    transition: 1s;
+}
+.Header-enter {
+    width:0%;
+}
+
+.Header-enter.Header-enter-active {
+    width:81%;
+}
+.Header-exit {
+    width:0%;
+}
+
+.Toolbar{
+    width: calc(70% + 50px);
+    margin: auto;
+    box-sizing: inherit;
+    height: 56px;
+    background-color: #0285c3;
+    color: white;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.ActionBtn {
+    font-size: 1.5rem;
+    background-color: #f4ebee;
+    border-radius: 100px;
+    margin: 15px;
+    border: none;
+    min-width: auto;
+    padding: 5px 12.5px;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    position: relative;
+    background-color: #0285c3;
+    border: 1px solid white;
+    transition:all ease 0.8s;
+
+}
+.Record {
+    color:#b1003f;
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+.Play {
+    color: white;
+    margin-left:50px;
+    
+}
+button:focus {
+    outline:none;
+}
+.Play:hover {
+    box-shadow:inset -110px 0 0 0 #f4ebee;
+    cursor:pointer;
+    color:#0285c3;
+}
+
+.Record:hover {
+    box-shadow:inset -100px 0 0 0 #f4ebee;
+    cursor:pointer;
+}
+
+svg {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    height: 100%;
+}

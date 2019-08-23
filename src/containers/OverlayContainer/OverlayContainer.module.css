@@ -1,0 +1,9 @@
+.overlayContainer {
+    position: absolute;
+    left: 20%;
+    bottom: 0%;
+    width: 13%;
+    margin-left: 1.2%;
+    z-index: 999;
+    overflow: visible;
+}

@@ -1,0 +1,294 @@
+.addNewSongBtn {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    background: #008cce;
+    border: white 2px solid;
+    box-shadow: 0px 0px 2px #008cce;
+    color: white;
+    transition:.5s;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 11px;
+}
+.addNewSongBtn:hover{
+    cursor:pointer;
+    transform: scale(1.3);
+    transition:.5s;
+    background-color:#2abaff;
+}
+
+.emptyContainer {
+    margin-top: 20%;
+    color: dimgrey;
+}
+
+.musicStaffContainer {
+    width:50%;
+    margin:auto;
+    overflow-x:hidden;
+    overflow-y: visible;
+    padding:5px;
+    white-space: nowrap;
+    height:200px;
+}
+
+@keyframes AnimateStaff {
+    0%{transform:translateX(0px)}
+    10% {transform: translateX(0px)}
+    87% {transform: translateX(-2150px)}
+    95% {transform: translateX(-2150px)}
+    100% {transform: translateX(0px);}
+}
+
+.musicStaff {
+    border-left:solid 6px black ;
+    border-right:solid 6px black ;
+    margin-top:50px;
+    background: linear-gradient(dimgrey, dimgrey, 3px, transparent 3px);
+    background-repeat: repeat;
+    background-size: 20px 20px;
+    width:2875px;
+    padding-left:20px;
+    animation-name: AnimateStaff;   
+    animation-duration: 8.2s;
+    -webkit-animation-name: AnimateStaff;
+    -webkit-animation-duration: 14s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.musicStaff:before {
+    content: ":";
+    color:black;
+    font-size:3rem;
+    border-left:solid 3px black;
+    position:relative;
+    left:-15px;
+    display:inline-block;
+    height: 77px;
+}
+
+.musicStaff:after {
+    content: ":";
+    color:black;
+    font-size:3rem;
+    border-right:solid 3px black;
+    position:relative;
+    left:-4px;
+    display:inline-block;
+    height: 77px;
+}
+
+
+
+
+.note {
+    position: relative;
+    width:20px;
+    background:transparent;
+    border-right:3px solid black;
+    height:55px;
+    display:inline-block;
+    background-image: linear-gradient(right, #000, #000 3px, transparent 3px);
+}
+
+.quarterNote.quarterNotePrecedingFlip {
+    margin-right: 30px !important;
+}
+
+.quarterNote.flipNote {
+    margin-right: 70px !important;
+}
+
+.note:before{
+    content: "";
+    position: relative;
+}
+
+.note:before {
+    width: 20px;
+    border-radius: 200%;
+    height: 20px;
+    transform: rotate(-30deg);
+    display: block;
+    position: relative;
+}
+
+.middleC {
+    top:45px;
+}
+.middleC:after {
+    position: absolute !important;
+    content: "";
+    position: relative;
+    border-top: 2px solid black;
+    width: 34px;
+    top: 57.5px;
+    left: -4px;
+}
+
+.AHigh:after {
+    content: "";
+    position: absolute !important;
+    position: relative;
+    border-top: 2px solid black;
+    width: 34px;
+    top: 0px;
+    left: 12.5px;
+}
+
+.dotted {
+    border-radius: 200%;
+    width:5px;
+    height:5px;
+    background:black;
+    position:absolute;
+    top:-1px;
+    right: -40px;
+}
+
+.E {top: 25px;}
+.F {top: 15px;}
+.G {top: 5px;}
+.A {top: -5px;}
+.B {top: -35px;}
+.C {top:-45px;}
+.D {top:-55px}
+.EHigh{top:-65px}
+.FHigh{top:-75px}
+.GHigh{top:-85px}
+.AHigh{top:-95px}
+
+.flipNote.E {top: 80px;}
+.flipNote.F {top: 70px;}
+.flipNote.G {top: 60px;}
+.flipNote.A {top: 50px;}
+.flipNote.B {top: 40px;}
+.flipNote.C {top:30px;}
+.flipNote.D {top:20px;}
+.flipNote.EHigh {top:10px}
+.flipNote.FHigh {top: 0px}
+.flipNote.GHigh{top:-10px}
+.flipNote.AHigh{top:-20px}
+
+.halfNote.noFlip:before {
+    top: 45px;
+    left: 3px;
+}
+
+.measure {
+    height:82px;
+    border-right: 3px solid black;
+    display:inline-block;
+    padding: 0 10px;
+}
+
+.keySig {
+    font-style:italic;
+    display:inline;
+    font-size: 1.5rem;
+    color:black;
+    position:relative;
+    top: -6px;
+}
+
+.eighthNote {
+    margin-right:25px;
+}
+.connector:after {
+    position: relative;
+    content: "";
+    background: transparent;
+    width: 50px;
+    height: 20px;
+    top: 17px;
+    left: 21.5px;
+    display: block;
+    border-bottom: 7px solid black;
+}
+
+.connectorFlat:after {
+    position: relative;
+    content: "";
+    background: transparent;
+    width: 51px;
+    height: 20px;
+    top: 11.9px;
+    left: 20.5px;
+    display: block;
+    border-bottom: 7px solid black;
+}
+
+.wholeStep:after {
+    transform:rotate(11.7deg);
+}
+
+.flag:after {
+    position:relative;
+    content: "";
+    background: transparent;
+    width: 15px;
+    height: 20px;
+    top: 15px;
+    left: 5px;
+    display: block;
+    border-left: 3px solid black;
+    border-bottom-left-radius: 200%;
+    border-bottom: 3px solid black;
+}
+
+.eighthNote:before {
+    background: black;
+    right: -3.3px;
+    top: 47px;
+}
+
+.quarterNote {
+    margin-right:50px;
+}
+
+.quarterNote:before{
+    background: black;
+    right: -3.3px;
+    top: 47px;
+}
+
+.halfNote{ 
+    margin-right:100px;
+}
+
+.halfNote:before {
+    background:transparent;
+    border: 3px solid black;
+    box-sizing: border-box;
+
+}
+.flipNote:before {
+    top: -8px !important;
+    left: 19.8px !important;
+}
+
+
+
+
+
+
+
+.emptyContainer .musicStaff div {
+    border-top:1px solid black;
+    margin-bottom: 12px;
+}
+
+.emptyContainer h1 {
+    line-height:3.5rem;
+}
+
+@media (max-width: 550px) {
+    .emptyContainer {
+        width:90%;
+        margin-left:10%;
+    }
+    .emptyContainer h1{
+        font-size:1.6rem;
+    }
+}

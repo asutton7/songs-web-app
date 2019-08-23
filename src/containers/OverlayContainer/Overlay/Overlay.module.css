@@ -1,0 +1,60 @@
+.overlay {
+    margin: 20px 0px;
+    width: 0px;
+    box-shadow: 1px 1px 2px 1px #737373;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2px 0px;
+    height: 0px;
+    opacity: 0;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.overlayShow {
+    display:block !important;
+    opacity:1 !important;
+    transition:.5s;
+    height:150px;
+    width:95%;
+}
+
+.maximizeBtn {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    padding: 0px;
+    top: 50px;
+    right: 15%;
+    cursor: pointer;
+}
+
+.maximizeBtn:hover {
+    background-color: #dddddd;
+}
+
+:global(.maximize){
+        height:300px;
+        width:150%;
+}
+:global(.maximize) .maximizeBtn{
+    right:-40%;
+}
+:global(.maximize) .closeBtn {
+    right:-50%;
+}
+.closeBtn {
+    display: inline;
+    /* float: right; */
+    position: absolute;
+    right: 5%;
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.54);
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    background-color: transparent !important;
+    
+}

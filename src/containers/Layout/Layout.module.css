@@ -1,0 +1,70 @@
+.MainContent {
+    margin-left:20%;
+    margin-top:0px;
+    height:100%;
+}
+
+.loadingScreen {
+    background-color: #0285c3;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:2rem;
+    line-height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loadingIcon {
+    border-radius: 200%;
+    width:200px;
+    height:200px;
+    display:block;
+    border:white 3px solid;
+    background-size:200% 200%;
+    animation: AnimateIcon 1s linear infinite;
+    -webkit-animation: AnimateIcon 1s linear infinite;
+}
+.loadingIcon:before {
+    content: "";
+    border-radius:200%;
+    width:25px;
+    height:25px;
+    background:white;
+    display:inline-block;
+}
+
+
+@keyframes AnimateIcon {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(90deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(270deg)}
+    100% {transform: rotate(360deg)}
+}
+
+@-webkit-keyframes AnimateIcon {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(90deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(270deg)}
+    100% {transform: rotate(360deg)}
+}
+
+.loadingIcon > div {
+    background: #fff;
+}
+
+@media (max-width: 550px) {
+    .mobileMc {
+        margin: auto !important;
+        height:100%;
+
+    }
+}
