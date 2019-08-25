@@ -16,17 +16,9 @@ class Metronome extends Component {
         averageTPM: null,
         previousTaps: [],
         playing: false,
-        context: null
-    }
-
-    increase = () => {
-        let newSpeed = Number(this.state.speed) + 1;
-        this.setState({speed: newSpeed});
-    }
-
-    decrease = () => {
-        let newSpeed = Number(this.state.speed) - 1;
-        this.setState({speed: newSpeed});
+        context: null,
+        timeSigDenom: 4,
+        timeSigNum: 4
     }
 
     speedChangeHandler = (evt) => {
@@ -46,9 +38,9 @@ class Metronome extends Component {
                     const now = acontext.currentTime;
 
                     let beatsPerSecond = bpm / 60.0;
-                    const beatsPerBar = 4;
+                    const beatsPerBar = this.state.timeSigDenom; //beatsperbar = numerator, beatlength = denominator
                     const beatLength = 4 / (beatsPerBar * beatsPerSecond);
-                    const freq = currentBeat % beatsPerBar == 1 ? 440 : 880;
+                    const freq = currentBeat % this.state.timeSigNum == 1 ? 440 : 880;
                     const zero = 0.00001;
 
                     let gainNode = acontext.createGain();
@@ -117,31 +109,40 @@ class Metronome extends Component {
         this.tapTempo();
     }
 
+    setDenom = (event) => {
+        this.setState({timeSigDenom: event.target.value});
+    }
+
+    setNum = (event) => {
+        this.setState({timeSigNum: event.target.value});
+        if(event.target.value > 31) {
+            this.setState({timeSigNum: 31})
+        }
+    }
+
     render() {
 
 
         return(
             <React.Fragment>
-                <div className={classes.flexbox}>
-                    <button onClick={this.decrease}>&lt;</button>
-                    <input className={classes.metText} type='number' min="1" max="240" onChange={this.speedChangeHandler} value={this.state.speed}/>
-                    <button onClick={this.increase}>&gt;</button>
-                </div>
+                    <p className={classes.metTextVal}>{this.state.speed}</p>
+                    <input className={classes.metText} type='range' min="1" max="240" onChange={this.speedChangeHandler} value={this.state.speed}/>
                 <button className={classes.actBtns} onClick={this.toggleMetronome}>Play</button>
                 <button className={classes.actBtns} onClick={this.tap}>Tap</button>
                 <div>
                 <p className={classes.timeSigLbl}>Time Sig</p>
-                <input className={classes.num} type='number' min='1' max="31" value='4'></input>
+                <input className={classes.num} value={this.state.timeSigNum} onChange={event => this.setNum(event)} type='number' min='1' max="31"></input>
                 <hr className={classes.hr}/>
-                    <select className={classes.denom}>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>4</option>
-                        <option>8</option>
-                        <option>16</option>
-                        <option>32</option>
-                    </select>
+                <div className={classes.denom} onChange={event => this.setDenom(event)}>
+                        <input id="1d" value="1" type="radio" name="denom"></input><label for="1d">1</label>
+                        <input id="2d" value = "2" type="radio" name="denom"></input><label for="2d">2</label>
+                        <input defaultChecked id="4d" value="4" type="radio" name="denom"></input> <label for="4d">4</label>
+                        <input id="8d" value="8" type="radio" name="denom"></input><label for="8d">8</label>
+                        <input id="16d" value="16" type="radio" name="denom"></input><label for="16d">16</label>
+                        <input id="32d" value="32" type="radio" name="denom"></input><label for="32d">32</label>
 
+
+                </div>
 
                 </div>
                 <div className={classes.expand} onClick={this.props.toggleSize}></div>

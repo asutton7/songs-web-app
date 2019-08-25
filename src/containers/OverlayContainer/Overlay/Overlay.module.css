@@ -15,7 +15,8 @@
     display:block !important;
     opacity:1 !important;
     transition:.5s;
-    height:150px;
+    height:170px;
+    padding: 5px 0px;
     width:95%;
 }
 
@@ -37,5 +38,5 @@
 
 
 :global(.maximize) {
-    height:250px;
+    height:330px;
 }

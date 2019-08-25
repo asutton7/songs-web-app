@@ -15,6 +15,14 @@ input[type=number]::-webkit-outer-spin-button {
     width:25%;
     text-align:center;
 }
+.metTextVal {
+    width: 20%;
+    margin: 5px auto;
+    border: 1px solid #0285c3;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
 
 .flexbox button {
     background: none;
@@ -27,7 +35,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .hr {
     display:none;    
-    width:25%;    
+    width:25%; 
+    margin-top:10px;   
 }
 .actBtns {
     background: none;
@@ -42,21 +51,53 @@ input[type=number]::-webkit-outer-spin-button {
     padding:2px;
     height:30px;
 }
+
 .denom {    
     display:none;
     margin: 0px auto 15px;
     border-radius: 20px;
     width: 40px;
     box-sizing: content-box;
-    height: 20px;}
+    justify-content: center;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.denom input{
+    position: fixed;
+    opacity: 0;
+}
+
+.denom label {
+    margin: 2.5px 10px;
+    flex-grow: 1;
+    padding: 2.5px;
+    width: 20%;
+    border: 1px solid #a9a9a9;
+    border-radius: 20px;
+    display: inline-block;
+    box-sizing: content-box;
+}
+
+[name="denom"]:checked + label {
+    background-color: #0285c3;
+    color:white; 
+}
+
+[name="denom"]:focus +label {
+    border-color: #2abaff
+}
+
 .num {
-    display:none; 
-    text-align: center; 
-    margin:auto;
-    width:40px;
-    height:20px;
-    border-radius:20px;
-    border: 1px solid rgb(169,169,169)}
+    display: none;
+    text-align: center;
+    padding: 2.5px;
+    margin: auto;
+    width: 25%;
+    height: 22.2px;
+    border-radius: 20px;
+    border: 1px solid rgb(169,169,169);
+}
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -87,8 +128,82 @@ button:hover {
     cursor: pointer;
 }
 
-:global(.maximize) .denom {display:block;}
+:global(.maximize) .denom {display:flex;}
 :global(.maximize) .num {display:block;}
 :global(.maximize) .expand {transition: .5s;transform: rotate(225deg)}
 :global(.maximize) .hr {display:block;}
 :global(.maximize) .timeSigLbl{display:block;}
+
+/*range input*/
+input[type=range] {
+    -webkit-appearance: none;
+    width: 60%;
+    margin: 5.8px 0;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #dadada;
+    border-radius: 1.3px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 20px;
+    width: 19px;
+    border-radius: 50px;
+    background: #0285c3;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #dadada;
+  }
+  input[type=range]::-moz-range-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #dadada;
+    border-radius: 1.3px;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 20px;
+    width: 19px;
+    border-radius: 50px;
+    background: #0285c3;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #0285c3;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #2abaff;
+    border-radius: 2.6px;
+  }
+  input[type=range]::-ms-thumb {
+    height: 20px;
+    width: 19px;
+    border-radius: 50px;
+    background: #ffffff;
+    cursor: pointer;
+    height: 8.4px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #dadada;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #dadada;
+  }
+  
