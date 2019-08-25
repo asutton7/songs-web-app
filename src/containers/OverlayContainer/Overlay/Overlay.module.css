@@ -19,30 +19,6 @@
     width:95%;
 }
 
-.maximizeBtn {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    padding: 0px;
-    top: 50px;
-    right: 15%;
-    cursor: pointer;
-}
-
-.maximizeBtn:hover {
-    background-color: #dddddd;
-}
-
-:global(.maximize){
-        height:300px;
-        width:150%;
-}
-:global(.maximize) .maximizeBtn{
-    right:-40%;
-}
-:global(.maximize) .closeBtn {
-    right:-50%;
-}
 .closeBtn {
     display: inline;
     /* float: right; */
@@ -57,4 +33,9 @@
 .closeBtn:hover {
     background-color: transparent !important;
     
+}
+
+
+:global(.maximize) {
+    height:250px;
 }

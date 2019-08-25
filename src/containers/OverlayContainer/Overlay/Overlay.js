@@ -19,9 +19,8 @@ const OverlayMet = (props) => {
     return (
         <div className={contentClass}>
             <button className={classes.closeBtn} onClick={props.toggleVis}>x</button>
-            <button className={classes.maximizeBtn} onClick={toggleSize}></button>
 
-            <Metronome toggleSize={toggleSize} max={maximize}/>
+            <Metronome toggleSize={toggleSize}/>
         </div>
     )
 }

@@ -124,16 +124,15 @@ class Metronome extends Component {
             <React.Fragment>
                 <div className={classes.flexbox}>
                     <button onClick={this.decrease}>&lt;</button>
-                    <input className={classes.metText} type='number' onChange={this.speedChangeHandler} value={this.state.speed}/>
+                    <input className={classes.metText} type='number' min="1" max="240" onChange={this.speedChangeHandler} value={this.state.speed}/>
                     <button onClick={this.increase}>&gt;</button>
                 </div>
+                <button className={classes.actBtns} onClick={this.toggleMetronome}>Play</button>
+                <button className={classes.actBtns} onClick={this.tap}>Tap</button>
                 <div>
-                    <button className={classes.actBtns} onClick={this.toggleMetronome}>Play</button>
-                    <input className={classes.num} type='number'></input>
-
-                </div>
-                <div>
-                    <button className={classes.actBtns} onClick={this.tap}>Tap</button>
+                <p className={classes.timeSigLbl}>Time Sig</p>
+                <input className={classes.num} type='number' min='1' max="31" value='4'></input>
+                <hr className={classes.hr}/>
                     <select className={classes.denom}>
                         <option>1</option>
                         <option>2</option>
@@ -143,7 +142,10 @@ class Metronome extends Component {
                         <option>32</option>
                     </select>
 
+
                 </div>
+                <div className={classes.expand} onClick={this.props.toggleSize}></div>
+
             </React.Fragment>
 
         )
