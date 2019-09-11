@@ -4,7 +4,7 @@ import SongEditor from '../SongEditor/SongEditor';
 import SongsNav from '../SongsNav/SongsNav';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import classes from './Layout.module.css';
-import Sidebar from '../../components/Sidebar/Sidebar';
+import Navbar from '../../components/Navbar/Navbar';
 import OverlayContainer from '../OverlayContainer/OverlayContainer';
 import firebase from '../../firebase';
 import {
@@ -15,7 +15,8 @@ import {
   
 } from "@react-firebase/auth";
 import 'firebase/auth';
-import Authentication from '../Authentication/Authentication'
+import Authentication from '../Authentication/Authentication';
+import ToolboxSlider from '../../components/ToolboxSlider/ToolboxSlider';
 
 class Layout extends Component {
     state = {
@@ -57,7 +58,7 @@ class Layout extends Component {
         }else {
             content = (            
                 <React.Fragment>
-                    <Sidebar signOutFunc={this.googleAuthSignOut} toggleMetronome={this.toggleMetronomeVis} toggleTuner={this.toggleTunerVis}/>  
+                    <Navbar signOutFunc={this.googleAuthSignOut} toggleMetronome={this.toggleMetronomeVis} toggleTuner={this.toggleTunerVis}/>  
                         <IfFirebaseAuthed>
                             <OverlayContainer 
                                 showMet={this.state.metronomeVis} 
@@ -65,6 +66,8 @@ class Layout extends Component {
                                 showTuner={this.state.tunerVis}
                                 toggleTuner={this.toggleTunerVis}
                                 />
+                            <ToolboxSlider />
+
                             <div className={[classes.mobileMc, classes.MainContent].join(' ')}>
                                 <Route path='/' exact component={SongsNav}  />
                                 <Route path='/:username/:id/:title' exact component={SongEditor}/> 

@@ -19,7 +19,6 @@ const song = (props) => {
             <p className={styles.Lyrics}>{LorF}</p>
             <div className={styles.InfoRow}>
                 <div className={styles.SongDate}>{props.lastUpdated}</div>
-                <div className={styles.SongID}>{props.id}</div>
             </div>
 
         </div>

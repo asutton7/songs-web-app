@@ -1,12 +1,12 @@
 .SidebarTool {
-    width:100%;
-    height:48px;
-    display:flex;
-    align-items:center;
+    height: 100%;
+    width:48px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     flex-flow: row;
-    font-size:1.1rem;
-    transition:.1s ease-in-out;
+    font-size: 1.1rem;
+    transition: .1s ease-in-out;
 }
 
 .vAlignNone{
@@ -16,21 +16,16 @@
 
 .SidebarTool:hover {
     cursor: pointer;
-    box-shadow: 1px 2px 0px #737373;
     color: #0285c3;
     background: #f4ebee;
 }
 
-.ToolTitle {
-    text-align:left;
-    padding-left: 16px;
+.ToolIcon {
+    text-align:center;
+    font-size: xx-large;
+    width:100%;
 }
 
-.ToolIcon {
-    text-align:right;
-    padding-right: 16px;
-    font-size: xx-large;
-}
 @media(max-width:750px) {
     .ToolTitle {
         display:none;

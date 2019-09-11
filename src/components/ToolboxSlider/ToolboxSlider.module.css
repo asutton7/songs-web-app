@@ -1,0 +1,10 @@
+.ToolboxSlider {
+    width: 100px;
+    position: fixed;
+    background-color: #0285c3;
+    bottom: 150px;
+    left: -75px;
+    height: 100px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

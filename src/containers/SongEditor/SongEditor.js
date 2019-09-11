@@ -37,7 +37,6 @@ class SongEditor extends Component {
                 song.title = doc.data().title;  
                 this.setState({lyrics: song.lyrics, title: song.title});
             });
-        this.animateHeader = TweenLite.to(this.animateHeader, .1, {ease: Expo.easeIn,width: '71%'});
     }
 
     changeHandler = (evt) => {
@@ -48,7 +47,7 @@ class SongEditor extends Component {
         return (
                     <div className={classes.Container}>     
                         <div>
-                            <h1 className={classes.Header} ref={h1 => this.animateHeader = h1}>{this.state.title}</h1>
+                            <h1 className={classes.Header}>{this.state.title}</h1>
                         </div>  
                         <textarea placeholder="Write your lyrics here!" className={classes.LyricInput} cols='max' onChange={(event) => this.changeHandler(event)} value={this.state.lyrics}></textarea>
                         <div className={classes.Toolbar}>

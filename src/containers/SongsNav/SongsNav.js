@@ -10,7 +10,8 @@ import EmptySongsNav from './EmptySongsNav/EmptySongsNav';
 class SongsNav extends Component {
     state = {
         songs: [],
-        currentDir: 'root'
+        currentDir: 'root',
+        loading: true
     }
     
     componentDidMount() {
@@ -31,7 +32,7 @@ class SongsNav extends Component {
                         isSong: doc.data().isSong
                     });
                 });
-                this.setState({songs: songsArray});
+                this.setState({songs: songsArray, loading:false});
             });
             
         }
@@ -56,7 +57,10 @@ class SongsNav extends Component {
                     songClick= {this.songClickHandler}
                 />
             }) 
-        } else {
+        } else if(this.state.loading) {
+            songsList = <div className={classes.loadingSongsScreen}><div className={classes.loadingIcon}></div></div>;
+        } 
+        else {
             songsList = <EmptySongsNav/>
         }
 
