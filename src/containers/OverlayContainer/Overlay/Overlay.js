@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Overlay.module.css';
-import Metronome from './Metronome/Metronome'
+import Metronome from './Metronome/Metronome';
+import Tuner from './Tuner/Tuner';
 
 const OverlayMet = (props) => {
     const [maximize, setSize] = useState(false);
@@ -34,6 +35,7 @@ const OverlayTune = (props) => {
     return(
         <div className={contentClass}>
             <button className={classes.closeBtn} onClick={props.toggleVis}>x</button>
+            <Tuner />
         </div>
     )
 }

@@ -3,10 +3,6 @@ import classes from './Metronome.module.css';
 import { throwStatement, thisExpression } from '@babel/types';
 
 class Metronome extends Component {
-    
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         speed: 120,
@@ -81,8 +77,7 @@ class Metronome extends Component {
         else if(taps > 1) {
 
             let bpm = 60000 / distanceBetweenTaps;
-            let tpmArr = [];
-            tpmArr.push(...this.state.previousTaps, bpm);
+            let tpmArr = [...this.state.previousTaps, bpm];
             if(tpmArr.length > 8) {
                 tpmArr.splice(0, 1);
             }
@@ -92,6 +87,7 @@ class Metronome extends Component {
             });
             
             let avgBpm = totalBpm / tpmArr.length;
+            if(avgBpm > 240) {avgBpm = 240;}
             this.setState({averageTPM: avgBpm, speed:parseInt(avgBpm.toString()), previousTaps: tpmArr});
 
         } 

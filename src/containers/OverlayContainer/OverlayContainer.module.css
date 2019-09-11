@@ -1,5 +1,5 @@
 .overlayContainer {
-    position: absolute;
+    position: fixed;
     left: 20%;
     bottom: 0%;
     width: 13%;

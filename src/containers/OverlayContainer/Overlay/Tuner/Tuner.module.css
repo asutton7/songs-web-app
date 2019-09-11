@@ -1,0 +1,98 @@
+.keyboard {
+    display: flex;
+    width: 90%;
+    margin:auto;
+    border:solid 1px black;
+    flex-direction: row;
+    height:50%;
+    
+}
+
+
+label text {
+    color:white;
+}
+.keyboard input {
+    opacity:0;
+    position: fixed;
+}
+
+[name="key"]:checked + label {
+    box-shadow: inset 2px 2px 5px 3px #737373;
+    color:white; 
+}
+
+[name="key"]:checked + .blackKey {
+    background-color: #0285c3;
+    box-shadow:none;
+    color:white; 
+}
+
+[name="key"]:focus +label {
+    border-color: #222222; 
+}
+
+
+.notes {
+    letter-spacing: 8.5px;
+    margin: auto;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.whiteKey {
+    background-color:white;
+    color:black;
+    width:15%;
+    cursor:pointer;
+    border: 1px solid black;
+}
+
+.blackKey{
+    background-color: black;
+    color: black;
+    position: relative;
+    left: 75%;
+    height: 70%;
+    display: block;
+    width: 50%;
+    cursor: pointer;
+}
+
+.checkContainer {
+    display: inline-block;
+    background-color: #0285c3;
+    cursor: pointer;
+    border-radius: 5px;
+    color:white;
+    padding:7.5px;
+    width:30%;
+    border-color:white;
+    box-shadow: 1px 1px 1px #a9a9a9;
+}
+
+
+.checkboxHide {
+    opacity:0;
+    position:absolute;
+    cursor:pointer;
+}
+
+.inputFlex{
+    margin: 10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.checkboxHide:checked + .checkContainer {
+    background: #00adff;
+}
+
+.toggleInstrument { 
+    background:black;
+}
+
+.checkboxHide:checked + .toggleInstrument {
+    background: black;
+}
