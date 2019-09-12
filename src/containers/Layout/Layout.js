@@ -22,6 +22,7 @@ class Layout extends Component {
     state = {
         metronomeVis: false,
         tunerVis: false,
+        toolboxVis: false,
         loadingAuth: true
     }
     
@@ -37,6 +38,10 @@ class Layout extends Component {
 
     toggleTunerVis = () => {
         this.setState({tunerVis: !this.state.tunerVis});
+    }
+
+    toggleToolboxVis = () => {
+        this.setState({toolboxVis: !this.state.toolboxVis});
     }
 
     googleAuthSignIn = () => {
@@ -58,7 +63,7 @@ class Layout extends Component {
         }else {
             content = (            
                 <React.Fragment>
-                    <Navbar signOutFunc={this.googleAuthSignOut} toggleMetronome={this.toggleMetronomeVis} toggleTuner={this.toggleTunerVis}/>  
+                    <Navbar signOutFunc={this.googleAuthSignOut} />  
                         <IfFirebaseAuthed>
                             <OverlayContainer 
                                 showMet={this.state.metronomeVis} 
@@ -66,7 +71,7 @@ class Layout extends Component {
                                 showTuner={this.state.tunerVis}
                                 toggleTuner={this.toggleTunerVis}
                                 />
-                            <ToolboxSlider />
+                            <ToolboxSlider expandTools={this.state.toolboxVis} toggleToolbox={this.toggleToolboxVis} toggleMet={this.toggleMetronomeVis} toggleTuner = {this.toggleTunerVis}/>
 
                             <div className={[classes.mobileMc, classes.MainContent].join(' ')}>
                                 <Route path='/' exact component={SongsNav}  />
