@@ -5,14 +5,12 @@ import Microphone from 'mdi-react/MicrophoneIcon';
 import Musicbook from 'mdi-react/AudiobookIcon';
 
 const ToolboxSlider = (props) => {
-    let toolBoxSliderClasses, arrow;
+    let toolBoxSliderClasses;
 
     if(props.expandTools) {
         toolBoxSliderClasses = [classes.ToolboxSlider, classes.ToolboxSliderShow].join(' ');
-        arrow = '<';
     }else {
         toolBoxSliderClasses = classes.ToolboxSlider;
-        arrow = '>';
     }
 
     
@@ -22,7 +20,7 @@ const ToolboxSlider = (props) => {
             <div className={classes.Tool} onClick={props.toggleMet}><MetronomeTick /><p>Metronome</p></div>
             <div className={classes.Tool} onClick={props.toggleTuner}><Microphone /><p>Tuner</p></div>
             <div className={classes.Tool}><Musicbook /><p>ChordHelper</p></div>
-            <div className={classes.ExpandIcon} onClick={props.toggleToolbox}><p>{arrow}</p></div>
+            <div className={classes.ExpandIcon} onClick={props.toggleToolbox}><p className={classes.arrow}>></p></div>
         </div>
     )
 }

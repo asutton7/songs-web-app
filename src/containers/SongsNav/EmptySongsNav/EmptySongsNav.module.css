@@ -91,7 +91,6 @@
     border-right:3px solid black;
     height:55px;
     display:inline-block;
-    background-image: linear-gradient(right, #000, #000 3px, transparent 3px);
 }
 
 .quarterNote.quarterNotePrecedingFlip {

@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Song.module.css';
 import MoreVert from '@material-ui/icons/MoreVert'
 import Folder from '@material-ui/icons/Folder';
-import {NavLink} from 'react-router-dom';
 
 const song = (props) => {
     let LorF = null;

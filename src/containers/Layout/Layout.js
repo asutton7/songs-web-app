@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Route, withRouter} from 'react-router-dom';
 import SongEditor from '../SongEditor/SongEditor';
 import SongsNav from '../SongsNav/SongsNav';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import classes from './Layout.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 import OverlayContainer from '../OverlayContainer/OverlayContainer';
@@ -11,7 +10,6 @@ import {
   FirebaseAuthProvider,
   IfFirebaseAuthed,
   IfFirebaseUnAuthed,
-  IfFirebaseAuthedAnd,
   
 } from "@react-firebase/auth";
 import 'firebase/auth';

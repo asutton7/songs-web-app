@@ -74,9 +74,9 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 2.5px;
     width: 20%;
     border: 1px solid #a9a9a9;
-    border-radius: 20px;
     display: inline-block;
     box-sizing: content-box;
+    cursor: pointer;
 }
 
 [name="denom"]:checked + label {
@@ -95,7 +95,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: auto;
     width: 25%;
     height: 22.2px;
-    border-radius: 20px;
     border: 1px solid rgb(169,169,169);
 }
 select {

@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './NavbarIcon.module.css';
-import MetronomeTick from 'mdi-react/MetronomeTickIcon';
 
 const SidebarTool = (props) => (
     <div onClick={props.onClick} className={classes.SidebarTool}>

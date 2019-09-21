@@ -24,7 +24,6 @@
     float: right;
 }
 .Song:hover .Lyrics {
-    max-height: 2.4rem;
     transition:.1s ease-in;
 }
 

@@ -40,7 +40,6 @@ a {
     padding: 0px;
     display: inline-flex;
     flex-flow: row;
-    justify-content: end;
     justify-content: flex-end;
     /* flex-grow: 10; */
     width: 80%;
