@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import classes from './Metronome.module.css';
-import { throwStatement, thisExpression } from '@babel/types';
 
 class Metronome extends Component {
 
@@ -36,7 +35,7 @@ class Metronome extends Component {
                     let beatsPerSecond = bpm / 60.0;
                     const beatsPerBar = this.state.timeSigDenom; //beatsperbar = numerator, beatlength = denominator
                     const beatLength = 4 / (beatsPerBar * beatsPerSecond);
-                    const freq = currentBeat % this.state.timeSigNum == 1 ? 440 : 880;
+                    const freq = currentBeat % this.state.timeSigNum === 1 ? 440 : 880;
                     const zero = 0.00001;
 
                     let gainNode = acontext.createGain();
@@ -95,7 +94,7 @@ class Metronome extends Component {
     }
 
     tap = () => {
-        if(this.state.tapCount == 0) {
+        if(this.state.tapCount === 0) {
             this.setState({tapping: true});
         }
 

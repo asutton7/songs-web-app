@@ -1,0 +1,62 @@
+.ToolboxSlider {
+    width: 1000px;
+    position: fixed;
+    background-color: white;
+    bottom: 50px;
+    left: -930px;
+    height: 175px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: .5s;
+    display: flex;
+    border: #0285c3 solid 1px;
+}
+
+.ToolboxSliderShow{
+    left:0px !important;
+    transition: .5s;
+}
+
+.ToolboxSlider .arrow {
+    transition: 1s;
+    transform: rotateY(0deg);
+}
+
+.ToolboxSliderShow .arrow {
+    transition: 1s;
+    transform:rotateY(180deg);
+
+}
+
+.Tool {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    width: 31%;
+    color: black;
+    font-size: 1.3rem;
+    justify-content: flex-end;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.ExpandIcon {
+    width: 7%;
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Tool:hover {
+    color: #0285c3;
+    transition: .2s;
+    background-color: #f4ebee;
+
+}
+
+.Tool svg {
+    height: 6rem;
+    width:100%;
+}

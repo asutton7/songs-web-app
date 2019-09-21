@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Song.module.css';
 import MoreVert from '@material-ui/icons/MoreVert'
 import Folder from '@material-ui/icons/Folder';
-import {NavLink} from 'react-router-dom';
 
 const song = (props) => {
     let LorF = null;
@@ -19,7 +18,6 @@ const song = (props) => {
             <p className={styles.Lyrics}>{LorF}</p>
             <div className={styles.InfoRow}>
                 <div className={styles.SongDate}>{props.lastUpdated}</div>
-                <div className={styles.SongID}>{props.id}</div>
             </div>
 
         </div>

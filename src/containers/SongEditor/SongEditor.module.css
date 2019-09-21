@@ -1,13 +1,18 @@
 .LyricInput {
+
+    display: block;
+    box-sizing: content-box;
     height: 65%;
-    width: 70%;
+    width: 80%;
     background-color: white;
     resize: none;
     border: none;
-    box-shadow: inset 3px 2px 0px 0 #0285c3;
+    /* box-shadow: inset 3px 2px 0px 0 #0285c3; */
+    margin: 0px auto;
     font-size: 1.5rem !important;
-    font:inherit;
+    font: inherit;
     padding: 25px;
+    border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }
 .LyricInput:focus {
@@ -31,32 +36,48 @@
     display:none;
 }
 
+.breadCrumbs {
+    color: #282c34;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin-left:10px;
+    /* padding: 5px 10px 5px 0px; */
+    background-color: white;
+    /* border-bottom-right-radius: 10px; */
+    z-index: 9999;
+}
+
+.breadCrumbs:hover {
+    background-color:#e5e5e5;
+    cursor:pointer;
+}
+
+.breadCrumbContainer {
+    position:absolute;
+    top: 1%;
+    margin: 0;
+    left:17.5%;
+    z-index:999;
+    display:flex;
+}
+
 .Header{
     color: white;
-    text-align: left;
+    text-align: center;
     background-color: #0285c3;
     white-space: nowrap;
-    width: 0%;
     overflow: hidden;
+    width:80%;
+    margin: 10px auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     padding: 10px;
-    padding-left: 15%;
-    border-top-right-radius: 100px;
     box-shadow: 1px 1px 3px 0px white;
     transition: 1s;
 }
-.Header-enter {
-    width:0%;
-}
-
-.Header-enter.Header-enter-active {
-    width:81%;
-}
-.Header-exit {
-    width:0%;
-}
 
 .Toolbar{
-    width: calc(70% + 50px);
+    width: calc(80% + 50px);
     margin: auto;
     box-sizing: inherit;
     height: 56px;

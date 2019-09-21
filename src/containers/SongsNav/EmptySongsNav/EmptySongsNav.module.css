@@ -19,8 +19,10 @@
 }
 
 .emptyContainer {
-    margin-top: 20%;
+    text-align: center;
     color: dimgrey;
+    width: 100%;
+    margin-top:10%;
 }
 
 .musicStaffContainer {
@@ -36,8 +38,8 @@
 @keyframes AnimateStaff {
     0%{transform:translateX(0px)}
     10% {transform: translateX(0px)}
-    87% {transform: translateX(-2150px)}
-    95% {transform: translateX(-2150px)}
+    87% {transform: translateX(-1950px)}
+    95% {transform: translateX(-1950px)}
     100% {transform: translateX(0px);}
 }
 
@@ -89,7 +91,6 @@
     border-right:3px solid black;
     height:55px;
     display:inline-block;
-    background-image: linear-gradient(right, #000, #000 3px, transparent 3px);
 }
 
 .quarterNote.quarterNotePrecedingFlip {
