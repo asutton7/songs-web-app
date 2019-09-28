@@ -7,21 +7,22 @@ import NewFolder from '@material-ui/icons/CreateNewFolder';
 import GoBack from '@material-ui/icons/ArrowBack'
 import {withRouter} from 'react-router-dom';
 import EmptySongsNav from './EmptySongsNav/EmptySongsNav';
-import {connect} from 'react-redux';
-import * as actionCreators from '../../store/actions'
-
 
 class SongsNav extends Component {
     state = {
+        songs: [],
+
         loading: true
     }
     
     componentDidMount() {
+        console.log('mounted');
+        console.log(firebase.auth().currentUser.email);
         const db = firebase.firestore();
         let songsArray = [];
         // SORT BY FOLDER THEN SONG BY LAST UPDATED. MAYBE ADD WAY FOR USERS TO SEARCH / SORT BY OTHER OPTIONS
-        console.log("users/"+firebase.auth().currentUser.email +"/songs/"+(this.props.openFolderKeys.length > 0 ? this.props.openFolderKeys.join('') : ''));
-        db.collection("users/"+firebase.auth().currentUser.email +"/songs/"+(this.props.openFolderKeys.length > 0 ? this.props.openFolderKeys.join('') : ''))
+        console.log("users/"+firebase.auth().currentUser.email +"/songs/");
+        db.collection("users/"+firebase.auth().currentUser.email +"/songs/")
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
@@ -34,8 +35,7 @@ class SongsNav extends Component {
                         isSong: doc.data().isSong
                     });
                 });
-                this.props.setSongs(songsArray);
-                this.setState({loading:false});
+                this.setState({songs: songsArray, loading:false});
             });
             
     }    
@@ -102,7 +102,7 @@ class SongsNav extends Component {
 
     createNewSong = () => {
         const db = firebase.firestore();
-        db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+this.props.openFolderKeys.join('')).add(
+        db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+this.state.currentDir.join()).add(
             {
                 isSong: true,
                 lyrics: '',
@@ -112,14 +112,17 @@ class SongsNav extends Component {
         ).then((song) => {
             this.props.history.push({
                 pathname: 'songs/' + song.id + '/' + song.title,
+                state: {currentDir: this.state.currentDir, dirFolderTitles: this.state.dirFolderTitles},
+                props: {navigateToFolder: this.navigateToFolder}
             });
         })
     }
 
     render() {
         let songsList = <p>Loading...</p>
-        if(this.props.songs.length > 0) {
-            songsList = this.props.songs.map(song => {  
+        console.log(this.state.songs.length);
+        if(this.state.songs.length !== 0) {
+            songsList = this.state.songs.map(song => {  
                 return  <Song 
                     id={song.id}
                     lastUpdated = {song.dateLastUpdated}
@@ -127,7 +130,7 @@ class SongsNav extends Component {
                     title = {song.title}
                     isSong = {song.isSong}
                     key = {song.id}
-                    songClick= {song.isSong ? this.songClickHandler : this.props.onDrillIn}
+                    songClick= {song.isSong ? this.songClickHandler : this.folderClickHandler}
                 />
             }) 
         } else if(this.state.loading) {
@@ -139,9 +142,6 @@ class SongsNav extends Component {
 
         //setting go back button css class and folder bread crumbs
         let goBackClasses = [classes.goBackBtn];
-        if(this.props.openFolderKeys.length > 0) {
-            goBackClasses = [...goBackClasses, classes.goBackBtnVisible]
-        }
         let breadCrumbs = null;
 
         return (
@@ -150,7 +150,7 @@ class SongsNav extends Component {
             {songsList}
             {breadCrumbs}
             </div>
-            <button className={goBackClasses.join(' ')} onClick={() => this.props.onDrillOut(this.props.openFolderKeys, this.props.openFolderNames)}><GoBack/></button>
+            <button className={goBackClasses.join(' ')} onClick={this.goBackClickHandler}><GoBack/></button>
             <button className={classes.addNewSongBtn} onClick={this.createNewSong}><NewSong/></button>
             <button className={classes.addNewFolderBtn}><NewFolder/></button>
         </React.Fragment>
@@ -158,20 +158,4 @@ class SongsNav extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        openFolderKeys: state.openFolderKeys,
-        openFolderNames: state.openFolderNames,
-        songs: state.songs
-    };
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onDrillIn: (folderKey, folderTitle, openFolderKeys) => dispatch(actionCreators.drillIn(folderKey, folderTitle, [...openFolderKeys, folderKey+'/songs/'] || '')),
-        onDrillOut: (openFolderKeys, openFolderNames) => dispatch(actionCreators.drillOut([...openFolderKeys], [...openFolderNames])),
-        setSongs: (songArr) => dispatch(actionCreators.setSongs(songArr))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SongsNav));
+export default withRouter(SongsNav);

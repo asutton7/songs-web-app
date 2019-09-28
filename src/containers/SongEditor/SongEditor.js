@@ -3,9 +3,12 @@ import firebase from '../../firebase';
 import classes from './SongEditor.module.css';
 import Record from '@material-ui/icons/FiberManualRecord'
 import Play from '@material-ui/icons/PlayArrow'
-import {connect} from 'react-redux';
 
 class SongEditor extends Component {
+    constructor(props){
+        super(props);
+    }
+    
     state = {
         lyrics: '',
         title: this.props.match.params.title
@@ -19,9 +22,7 @@ class SongEditor extends Component {
             lyrics: null,
             title: null
         };
-        console.log("users/" +firebase.auth().currentUser.email+ "/songs/"+this.props.openFolderKeys.join('')+this.props.match.params.id)
-        db.collection("users/" +firebase.auth().currentUser.email+ "/songs/"+this.props.openFolderKeys.join(''))
-            .doc(this.props.match.params.id)
+        db.collection("users/" +firebase.auth().currentUser.email+ "/songs/").doc(this.props.match.params.id)
             .get()
             .then((doc) => {
                 song.id = doc.id;
@@ -60,11 +61,4 @@ class SongEditor extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        openFolderKeys: state.openFolderKeys,
-    };
-}
-
-
-export default connect(mapStateToProps)(SongEditor);
+export default SongEditor;

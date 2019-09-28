@@ -70,12 +70,11 @@ class Layout extends Component {
                                 toggleTuner={this.toggleTunerVis}
                                 />
                             <ToolboxSlider expandTools={this.state.toolboxVis} toggleToolbox={this.toggleToolboxVis} toggleMet={this.toggleMetronomeVis} toggleTuner = {this.toggleTunerVis}/>
-                            <React.Fragment>
+
                             <div className={[classes.mobileMc, classes.MainContent].join(' ')}>
                                 <Route path='/' exact component={SongsNav}  />
                                 <Route path='/:username/:id/:title' exact component={SongEditor}/> 
                             </div>
-                            </React.Fragment>
                         </IfFirebaseAuthed>
                         <IfFirebaseUnAuthed>
                             <Authentication className={classes.MainContent} authFunc={this.googleAuthSignIn}/>

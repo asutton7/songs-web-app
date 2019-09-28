@@ -129,12 +129,12 @@ class Metronome extends Component {
                 <input className={classes.num} value={this.state.timeSigNum} onChange={event => this.setNum(event)} type='number' min='1' max="31"></input>
                 <hr className={classes.hr}/>
                 <div className={classes.denom} onChange={event => this.setDenom(event)}>
-                        <input id="1d" value="1" type="radio" name="denom"></input><label htmlFor="1d">1</label>
-                        <input id="2d" value = "2" type="radio" name="denom"></input><label htmlFor="2d">2</label>
-                        <input defaultChecked id="4d" value="4" type="radio" name="denom"></input> <label htmlFor="4d">4</label>
-                        <input id="8d" value="8" type="radio" name="denom"></input><label htmlFor="8d">8</label>
-                        <input id="16d" value="16" type="radio" name="denom"></input><label htmlFor="16d">16</label>
-                        <input id="32d" value="32" type="radio" name="denom"></input><label htmlFor="32d">32</label>
+                        <input id="1d" value="1" type="radio" name="denom"></input><label for="1d">1</label>
+                        <input id="2d" value = "2" type="radio" name="denom"></input><label for="2d">2</label>
+                        <input defaultChecked id="4d" value="4" type="radio" name="denom"></input> <label for="4d">4</label>
+                        <input id="8d" value="8" type="radio" name="denom"></input><label for="8d">8</label>
+                        <input id="16d" value="16" type="radio" name="denom"></input><label for="16d">16</label>
+                        <input id="32d" value="32" type="radio" name="denom"></input><label for="32d">32</label>
 
 
                 </div>
