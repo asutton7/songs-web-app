@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Song.module.css';
 import MoreVert from '@material-ui/icons/MoreVert'
 import Folder from '@material-ui/icons/Folder';
+import {connect} from 'react-redux';
 
 const song = (props) => {
     let LorF = null;
@@ -12,7 +13,7 @@ const song = (props) => {
     }
 
     return (
-        <div onClick={() => props.songClick(props.id, props.title)} className={props.isSong ? styles.Song : [styles.Song, styles.Folder].join(' ')}>
+        <div onClick={() => props.songClick(props.id, props.title, [...props.openFolderKeys])} className={props.isSong ? styles.Song : [styles.Song, styles.Folder].join(' ')}>
             <p className={styles.SongTitle}>{props.title}</p>
             <MoreVert className={styles.optionsBtn}/>
             <p className={styles.Lyrics}>{LorF}</p>
@@ -24,4 +25,10 @@ const song = (props) => {
     )
 }
 
-export default song;
+const mapStateToProps = state => {
+    return {
+        openFolderKeys: state.openFolderKeys,
+    };
+}
+
+export default connect(mapStateToProps)(song);
