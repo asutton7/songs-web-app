@@ -34,6 +34,7 @@ class SongsNav extends Component {
                         isSong: doc.data().isSong
                     });
                 });
+                console.log(songsArray);
                 this.props.setSongs(songsArray);
                 this.setState({loading:false});
             });
@@ -118,7 +119,7 @@ class SongsNav extends Component {
 
     render() {
         let songsList = <p>Loading...</p>
-        if(this.props.songs.length > 0) {
+        if(this.props.songs) {
             songsList = this.props.songs.map(song => {  
                 return  <Song 
                     id={song.id}
@@ -170,7 +171,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onDrillIn: (folderKey, folderTitle, openFolderKeys) => dispatch(actionCreators.drillIn(folderKey, folderTitle, [...openFolderKeys, folderKey+'/songs/'] || '')),
         onDrillOut: (openFolderKeys, openFolderNames) => dispatch(actionCreators.drillOut([...openFolderKeys], [...openFolderNames])),
-        setSongs: (songArr) => dispatch(actionCreators.setSongs(songArr))
+        setSongs: (songsArr) => dispatch(actionCreators.setSongs(songsArr))
     }
 }
 
