@@ -56,7 +56,14 @@
 
 }
 
+
 .Tool svg {
     height: 6rem;
     width:100%;
+}
+
+@media(max-width: 1400px) {
+    .ToolboxSlider {
+        display: none;
+    }
 }

@@ -108,4 +108,16 @@ img {
   font-weight: bold;
   font-family: 'Roboto',arial,sans-serif;
   width:80%;
+  white-space: pre-wrap
+}
+
+@media(max-width: 1024px) {
+    .authBox {
+        width:30%;
+    }
+}
+@media(max-width: 600px) {
+    .authBox {
+        width:70%;
+    }
 }

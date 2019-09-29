@@ -5,7 +5,7 @@
     display:inline-flex;
     top:0 ;
     left:0 ;
-    height:5%;
+    height:50px;
     color:white ;
     z-index: 999;
 }
@@ -26,6 +26,11 @@
     cursor:pointer;
 }
 .songMobile{
+    width: 10%;
+    margin-left: 10% !important;
+    margin: 0px 0px;
+    /* text-align: center; */
+    box-sizing: border-box;
     display:none;
 }
 
@@ -66,28 +71,15 @@ a {
 }
 
 @media(max-width:768px) {
-    .songHeader {
+    .breadCrumbsContainer{
         display:none;
-    }
-    .songMobile{
-        display:block;
-    }
-    .expandNav {
-        left:16%;
     }
 }
 
 @media(max-width:550px) {
-    .expandNav{
-        display:none;
-    }
-    .Navbar{ 
-        margin-top:0;
-        width:10%;
-        display:flex;
 
-    }
-    .songMobile {
+    .songHeader {
         display:none;
     }
+    .songMobile {display: block;}
 }

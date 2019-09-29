@@ -47,59 +47,6 @@ class SongsNav extends Component {
                 pathname:'songs/' +songId + '/' + songTitle,
             });
     }
-    // THIS CODE WAS USED FOR THE FOLDER NAVIGATIon. WILL BE CHANGING THIS WITH ADDITION OF REDUX //
-    /*folderClickHandler = (folderId, folderTitle) => {
-        this.setState({loading:true});
-
-        const db = firebase.firestore();
-        let currentDir = [...this.state.currentDir, folderId+'/songs/'];
-        let folderTitles = [...this.state.dirFolderTitles, folderTitle];
-        let songsArray = [];
-
-        db.collection("users/"+firebase.auth().currentUser.email +"/songs/"+currentDir.join())
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach(doc => {
-                console.log(doc);
-                songsArray.push({
-                    id: doc.id,
-                    dateLastUpdated: doc.data().dateLastUpdated.toDate().toLocaleString(),
-                    lyrics: doc.data().lyrics,
-                    title: doc.data().title,
-                    isSong: doc.data().isSong
-                });
-            });
-            this.setState({songs: songsArray, loading:false, currentDir: currentDir, dirFolderTitles: folderTitles});
-        });
-
-
-    }
-
-    goBackClickHandler = () => {
-
-        const db = firebase.firestore();
-        let currentDir = this.state.currentDir;
-        let folderTitles = this.state.dirFolderTitles;
-        currentDir.pop();
-        folderTitles.pop();
-        let songsArray = [];
-        
-        db.collection("users/"+firebase.auth().currentUser.email +"/songs/"+currentDir.join())
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach(doc => {
-                console.log(doc);
-                songsArray.push({
-                    id: doc.id,
-                    dateLastUpdated: doc.data().dateLastUpdated.toDate().toLocaleString(),
-                    lyrics: doc.data().lyrics,
-                    title: doc.data().title,
-                    isSong: doc.data().isSong
-                });
-            });
-            this.setState({songs: songsArray, loading:false, currentDir: currentDir, dirFolderTitles: folderTitles});
-        });
-    }*/
 
     createNewSong = () => {
         const db = firebase.firestore();
@@ -151,9 +98,11 @@ class SongsNav extends Component {
             {songsList}
             {breadCrumbs}
             </div>
+            <div className={classes.buttonsFlex}>
             <button className={goBackClasses.join(' ')} onClick={() => this.props.onDrillOut(this.props.openFolderKeys, this.props.openFolderNames)}><GoBack/></button>
             <button className={classes.addNewSongBtn} onClick={this.createNewSong}><NewSong/></button>
             <button className={classes.addNewFolderBtn}><NewFolder/></button>
+            </div>
         </React.Fragment>
         );
     }
