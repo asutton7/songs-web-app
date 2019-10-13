@@ -48,6 +48,12 @@ a {
     background-color: white;
     /* border-bottom-right-radius: 10px; */
     margin: 5px;
+    cursor:pointer;
+}
+
+.breadCrumbs:hover{
+    background-color: #ececec;
+
 }
 
 .breadCrumbsContainer {

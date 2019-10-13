@@ -1,15 +1,16 @@
 import React from 'react';
 import classes from './Navbar.module.css';
-import SidebarTool from './NavbarIcon/NavbarIcon';
+import NavbarTool from './NavbarIcon/NavbarIcon';
 import {NavLink} from 'react-router-dom';
 import { IfFirebaseAuthed } from '@react-firebase/auth';
 import {connect} from 'react-redux';
+import * as actionCreators from '../../store/actions'
 
-const sidebar = (props) =>  {
+const navbar = (props) =>  {
     let breadCrumbs = null;
     if(props.openFolderNames.length > 0){
         breadCrumbs = props.openFolderNames.map((val, index) => {
-            return <span className={classes.breadCrumbs}>{val}</span>
+            return <span key={index} id={index} onClick={() => props.moveToFolder(index, props.openFolderKeys, props.openFolderNames)} className={classes.breadCrumbs}>{val}</span>
         })
     }
 
@@ -19,10 +20,10 @@ const sidebar = (props) =>  {
             <h1 className={classes.songMobile}>s</h1>
             <p className={classes.breadCrumbsContainer}>{breadCrumbs}</p>
             <ul>
-                <NavLink to="/"><SidebarTool key="0" icon='library_music'/></NavLink>
-                <SidebarTool key="3" icon='settings'/>
+                <NavLink to="/"><NavbarTool key="0" icon='library_music'/></NavLink>
+                <NavbarTool key="3" icon='settings'/>
                 <IfFirebaseAuthed>
-                    <SidebarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='arrow_back'/> 
+                    <NavbarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='arrow_back'/> 
                 </IfFirebaseAuthed>
             </ul>
         </div>
@@ -32,7 +33,14 @@ const sidebar = (props) =>  {
 const mapStateToProps = state => {
     return {
         openFolderNames: state.openFolderNames,
+        openFolderKeys: state.openFolderKeys
     };
 }
 
-export default connect(mapStateToProps)(sidebar);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        moveToFolder: (index, openFolderKeys, openFolderNames) => dispatch(actionCreators.moveToFolder(index, [...openFolderKeys], [...openFolderNames]))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(navbar);

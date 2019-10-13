@@ -123,6 +123,14 @@
     background: #fff;
 }
 
+.songstrans-enter {
+    margin-left: 1000px;
+}
+
+.songstrans-enter-active{
+    margin-left: initial;
+}
+
 @keyframes AnimateIcon {
     0% {transform: rotate(0deg)}
     25% {transform: rotate(90deg)}

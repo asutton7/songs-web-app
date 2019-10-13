@@ -15,6 +15,7 @@ import {
 import 'firebase/auth';
 import Authentication from '../Authentication/Authentication';
 import ToolboxSlider from '../../components/ToolboxSlider/ToolboxSlider';
+import '../../react-transitions/react-transitions.css';
 
 class Layout extends Component {
     state = {
@@ -71,7 +72,7 @@ class Layout extends Component {
                                 />
                             <ToolboxSlider expandTools={this.state.toolboxVis} toggleToolbox={this.toggleToolboxVis} toggleMet={this.toggleMetronomeVis} toggleTuner = {this.toggleTunerVis}/>
                             <React.Fragment>
-                            <div className={[classes.mobileMc, classes.MainContent].join(' ')}>
+                            <div className={[classes.mobileMc, classes.MainContent, 'transition-container'].join(' ')}>
                                 <Route path='/' exact component={SongsNav}  />
                                 <Route path='/:username/:id/:title' exact component={SongEditor}/> 
                             </div>

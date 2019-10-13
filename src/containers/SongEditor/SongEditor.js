@@ -4,6 +4,7 @@ import classes from './SongEditor.module.css';
 import Record from '@material-ui/icons/FiberManualRecord'
 import Play from '@material-ui/icons/PlayArrow'
 import {connect} from 'react-redux';
+import '../../react-transitions/react-transitions.css';
 
 class SongEditor extends Component {
     state = {
@@ -40,7 +41,7 @@ class SongEditor extends Component {
 
 
         return (
-                    <div className={classes.Container}>     
+                    <div className={[classes.Container, 'react-transition', 'fade-in' ].join(' ')}>     
                         <div>
                             <h1 className={classes.Header}>{this.state.title}</h1>
                         </div>  

@@ -10,7 +10,6 @@ import EmptySongsNav from './EmptySongsNav/EmptySongsNav';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actions'
 
-
 class SongsNav extends Component {
     state = {
         loading: true
@@ -66,7 +65,7 @@ class SongsNav extends Component {
 
     render() {
         let songsList = <p>Loading...</p>
-        if(this.props.songs) {
+        if(this.props.songs.length > 0) {
             songsList = this.props.songs.map(song => {  
                 return  <Song 
                     id={song.id}
@@ -90,20 +89,18 @@ class SongsNav extends Component {
         if(this.props.openFolderKeys.length > 0) {
             goBackClasses = [...goBackClasses, classes.goBackBtnVisible]
         }
-        let breadCrumbs = null;
 
         return (
-        <React.Fragment>
-            <div className={classes.SongsNav}>
-            {songsList}
-            {breadCrumbs}
-            </div>
-            <div className={classes.buttonsFlex}>
-            <button className={goBackClasses.join(' ')} onClick={() => this.props.onDrillOut(this.props.openFolderKeys, this.props.openFolderNames)}><GoBack/></button>
-            <button className={classes.addNewSongBtn} onClick={this.createNewSong}><NewSong/></button>
-            <button className={classes.addNewFolderBtn}><NewFolder/></button>
-            </div>
-        </React.Fragment>
+            <React.Fragment>
+                <div className={this.state.loading ? [classes.SongsNav] : [classes.SongsNav, 'react-transition', 'swipe-up'].join(' ')}>
+                    {songsList}
+                </div>
+                <div className={classes.buttonsFlex}>
+                <button className={goBackClasses.join(' ')} onClick={() => this.props.onDrillOut(this.props.openFolderKeys, this.props.openFolderNames)}><GoBack/></button>
+                <button className={classes.addNewSongBtn} onClick={this.createNewSong}><NewSong/></button>
+                <button className={classes.addNewFolderBtn}><NewFolder/></button>
+                </div>
+            </React.Fragment>
         );
     }
 }

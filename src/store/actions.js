@@ -3,11 +3,44 @@ import firebase from '../firebase';
 export const DRILL_IN = 'DRILL_IN';
 export const DRILL_OUT = 'DRILL_OUT';
 export const SET_SONGS = "SET_SONGS";
-
+export const MOVE_TO_FOLDER = "MOVE_TO_FOLDER";
 export const setSongs = (songsArr) => {
     return {
         type: SET_SONGS,
         songsArr: [...songsArr]
+    }
+}
+
+export const saveMoveToFolder = (openFolderKeys, openFolderTitles, songsArray) => {
+    return {
+        type: MOVE_TO_FOLDER,
+        fKeys: openFolderKeys,
+        fNames: openFolderTitles,
+        songsArr: songsArray
+    }
+}
+
+export const moveToFolder = (targetIndex, openFolders, folderTitles) => {
+    return dispatch => {
+        const db = firebase.firestore();
+        let songsArray = [];
+        openFolders.splice(targetIndex+1);
+        folderTitles.splice(targetIndex+1);
+        db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+openFolders.join(''))
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach(doc => {
+                    console.log(doc);
+                    songsArray.push({
+                        id: doc.id,
+                        dateLastUpdated: doc.data().dateLastUpdated.toDate().toLocaleString(),
+                        lyrics: doc.data().lyrics,
+                        title: doc.data().title,
+                        isSong: doc.data().isSong
+                    });
+            });
+        dispatch(saveMoveToFolder(openFolders, folderTitles, songsArray));
+        });
     }
 }
 
