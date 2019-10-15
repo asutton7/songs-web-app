@@ -3,6 +3,7 @@
     position: fixed;
     background-color: white;
     bottom: 50px;
+    z-index: 999;
     left: -930px;
     height: 175px;
     border-top-right-radius: 20px;

@@ -1,4 +1,5 @@
 .SongsNav {
+    margin-bottom: 50px;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;

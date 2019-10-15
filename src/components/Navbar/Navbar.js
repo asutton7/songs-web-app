@@ -1,16 +1,29 @@
 import React from 'react';
 import classes from './Navbar.module.css';
 import NavbarTool from './NavbarIcon/NavbarIcon';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { IfFirebaseAuthed } from '@react-firebase/auth';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions'
+import {withRouter} from 'react-router-dom';
 
-const navbar = (props) =>  {
+const navbar = (props) => {
     let breadCrumbs = null;
-    if(props.openFolderNames.length > 0){
+    let rootBreadCrumb = <span key='bcRootKey' id='-1' onClick={async () => {
+        await props.history.push({
+            pathname:'/'
+        });
+        props.moveToFolder(-1, props.openFolderKeys, props.openFolderNames);
+    }} className={classes.breadCrumbs}>root</span>
+
+    if (props.openFolderNames.length > 0) {
         breadCrumbs = props.openFolderNames.map((val, index) => {
-            return <span key={index} id={index} onClick={() => props.moveToFolder(index, props.openFolderKeys, props.openFolderNames)} className={classes.breadCrumbs}>{val}</span>
+            return <span key={index} id={index} onClick={async () => {
+                await props.history.push({
+                    pathname:'/'
+                });
+                props.moveToFolder(index, props.openFolderKeys, props.openFolderNames);
+            }} className={classes.breadCrumbs}>{val}</span>
         })
     }
 
@@ -18,12 +31,12 @@ const navbar = (props) =>  {
         <div className={classes.Navbar}>
             <h1 className={classes.songHeader}>songs</h1>
             <h1 className={classes.songMobile}>s</h1>
-            <p className={classes.breadCrumbsContainer}>{breadCrumbs}</p>
+            <p className={classes.breadCrumbsContainer}>{rootBreadCrumb}{breadCrumbs}</p>
             <ul>
-                <NavLink to="/"><NavbarTool key="0" icon='library_music'/></NavLink>
-                <NavbarTool key="3" icon='settings'/>
+                <NavLink to="/"><NavbarTool key="0" icon='library_music' /></NavLink>
+                <NavbarTool key="3" icon='settings' />
                 <IfFirebaseAuthed>
-                    <NavbarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='arrow_back'/> 
+                    <NavbarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='arrow_back' />
                 </IfFirebaseAuthed>
             </ul>
         </div>
@@ -43,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(navbar));

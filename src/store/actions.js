@@ -24,8 +24,15 @@ export const moveToFolder = (targetIndex, openFolders, folderTitles) => {
     return dispatch => {
         const db = firebase.firestore();
         let songsArray = [];
-        openFolders.splice(targetIndex+1);
-        folderTitles.splice(targetIndex+1);
+        if(targetIndex < 0) {
+            openFolders = [];
+            folderTitles = [];
+        } else {
+            openFolders.splice(targetIndex+1);
+            folderTitles.splice(targetIndex+1);
+        }
+
+        console.log(openFolders);
         db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+openFolders.join(''))
             .get()
             .then((querySnapshot) => {
