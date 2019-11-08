@@ -19,7 +19,7 @@ const ToolboxSlider = (props) => {
         <div className={toolBoxSliderClasses}>
             <div className={classes.Tool} onClick={props.toggleMet}><MetronomeTick /><p>Metronome</p></div>
             <div className={classes.Tool} onClick={props.toggleTuner}><Microphone /><p>Tuner</p></div>
-            <div className={classes.Tool}><Musicbook /><p>ChordHelper</p></div>
+            <div className={classes.Tool}><Musicbook color='grey' /><p>ChordHelper</p></div>
             <div className={classes.ExpandIcon} onClick={props.toggleToolbox}><p className={classes.arrow}>></p></div>
         </div>
     )

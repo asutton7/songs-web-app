@@ -34,7 +34,7 @@
     box-shadow:none;
     background-color:#0285c3;
     color:white;
-    border: 10px solid white;
+    border: 10px solid #f4ebee;
     padding:10px;
     box-sizing: border-box;
     margin:0 auto;
@@ -55,10 +55,70 @@
     color: black;
 }
 
+.wordText:focus {
+     outline:none;
+}
+
 .wordResults {
-    background-color:#2abaff;
+    background-color:#f4ebee;
     width:40%;
     color:black;
+    display:flex;
+    flex-direction: column;
+}
+
+.wordResultsContainer {
+    overflow-y: scroll;
+}
+
+.wordResultsContainer::-webkit-scrollbar {
+    background-color:transparent;
+    width:2%;
+}
+.wordResultsContainer::-webkit-scrollbar-thumb {
+    background-color:#0285c3;
+}
+
+
+.loadingIcon {
+    border-radius: 200%;
+    width:200px;
+    height:200px;
+    display:block;
+    border:#0285c3 3px solid;
+    background-size:200% 200%;
+    animation: AnimateIcon 1s linear infinite;
+    -webkit-animation: AnimateIcon 1s linear infinite;
+    margin:auto;
+}
+.loadingIcon:before {
+    content: "";
+    border-radius:200%;
+    width:25px;
+    height:25px;
+    background:#0285c3;
+    display:inline-block;
+}
+
+
+@keyframes AnimateIcon {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(90deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(270deg)}
+    100% {transform: rotate(360deg)}
+}
+
+@-webkit-keyframes AnimateIcon {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(90deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(270deg)}
+    100% {transform: rotate(360deg)}
+}
+
+.loadingIcon > div {
+    background: #fff;
 }
 
 .noWordsContainer {
@@ -72,7 +132,7 @@
     vertical-align: middle;
     text-align: center;
     width: 100%;
-    color: white;
+    color: black;
     font-size:1.5rem;
 }
 
@@ -91,19 +151,6 @@
     display:inline-block;
 }
 
-.Toolbar{
-    width: calc(80% + 50px);
-    margin: auto;
-    box-sizing: inherit;
-    height: 56px;
-    background-color: #0285c3;
-    color: white;
-    display: flex;
-    vertical-align: middle;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
 .ActionBtn {
     font-size: 1.5rem;
     background-color: #f4ebee;
@@ -163,3 +210,4 @@ svg {
     top: 0;
     height: 100%;
 }
+

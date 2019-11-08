@@ -1,0 +1,132 @@
+
+.Toolbar{
+    width: 100%;
+    margin: auto;
+    box-sizing: inherit;
+    height: 56px;
+    background-color: #0285c3;
+    color: white;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.audioControls{
+    width:60%;
+    margin:auto;
+    height:60%;
+}
+/*range styling*/
+canvas {
+    display:none;
+}
+
+.Toolbar button {
+    background:none;
+    border:2px solid #f4ebee;
+    outline:none;
+    height:32px;
+    width: 64px;
+    margin: 16px;
+    color:white;
+    cursor:pointer;
+}
+.actionButtons{
+    justify-content: flex-end;
+    display: inline-flex;
+    width: 1;
+    flex-grow: 1;
+    margin-right: 32px;
+}
+
+.saveButton {
+    background-color:#1f871f !important;
+}
+.saveButton:disabled {
+    background-color:#0285c3 !important;
+    cursor: default;
+}
+.deleteButton {
+    background-color:#8d0000 !important;
+}
+
+:global(div#controlBar.controlBar) {background-color:rgb(2, 133, 195) !important;}
+/*range input*/
+input[type=range][name='songSeek'] {
+    -webkit-appearance: none;
+    width: 60%;
+    margin: 5.8px 16px;
+    background-color:#0285c3;
+  }
+  input[type=range][name='songSeek']:focus {
+    outline: none;
+  }
+  input[type=range][name='songSeek']::-webkit-slider-runnable-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #f4ebee;
+    border-radius:50px;
+  }
+
+  input[type=range][name='songSeek']::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: #1F323E;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+    
+    
+  }
+  input[type=range][name='songSeek']:focus::-webkit-slider-runnable-track {
+    background: #f4ebee;
+    
+  }
+  input[type=range][name='songSeek']::-moz-range-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #f4ebee;
+    border-radius: 1.3px;
+    
+  }
+  input[type=range][name='songSeek']::-moz-range-thumb {
+    height: 20px;
+    width: 19px;
+    border-radius: 50px;
+    background: #1F323E;
+    cursor: pointer;
+  }
+  input[type=range][name='songSeek']::-ms-track {
+    width: 60%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #f4ebee;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range][name='songSeek']::-ms-fill-lower {
+    background: #0285c3;
+    border-radius: 2.6px;
+  }
+  input[type=range][name='songSeek']::-ms-fill-upper {
+    background: #2abaff;
+    border-radius: 2.6px;
+  }
+  input[type=range][name='songSeek']::-ms-thumb {
+    height: 20px;
+    width: 19px;
+    border-radius: 50px;
+    background: #1F323E;
+    cursor: pointer;
+    height: 8.4px;
+  }
+  input[type=range][name='songSeek']:focus::-ms-fill-lower {
+    background: #f4ebee;
+  }
+  input[type=range][name='songSeek']:focus::-ms-fill-upper {
+    background: #f4ebee;
+  }
+  

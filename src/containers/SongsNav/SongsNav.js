@@ -40,10 +40,10 @@ class SongsNav extends Component {
             
     }    
     
-    songClickHandler = (songId, songTitle) => {       
+    songClickHandler = (songId) => {       
         this.props.history.push(
             {
-                pathname:'songs/' +songId + '/' + songTitle,
+                pathname:'songs/' +songId,
             });
     }
 

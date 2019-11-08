@@ -70,11 +70,11 @@ class Layout extends Component {
                                 showTuner={this.state.tunerVis}
                                 toggleTuner={this.toggleTunerVis}
                                 />
-                            <ToolboxSlider expandTools={this.state.toolboxVis} toggleToolbox={this.toggleToolboxVis} toggleMet={this.toggleMetronomeVis} toggleTuner = {this.toggleTunerVis}/>
+                            <Route exact path='/' render={ (props) => <ToolboxSlider expandTools={this.state.toolboxVis} toggleToolbox={this.toggleToolboxVis} toggleMet={this.toggleMetronomeVis} toggleTuner = {this.toggleTunerVis}/> } />
                             <React.Fragment>
                             <div className={[classes.mobileMc, classes.MainContent, 'transition-container'].join(' ')}>
                                 <Route path='/' exact component={SongsNav}  />
-                                <Route path='/:username/:id/:title' exact component={SongEditor}/> 
+                                <Route path='/:username/:id' exact component={SongEditor}/> 
                             </div>
                             </React.Fragment>
                         </IfFirebaseAuthed>

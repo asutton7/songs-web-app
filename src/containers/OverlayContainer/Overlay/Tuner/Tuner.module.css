@@ -21,20 +21,20 @@ label text {
     position: fixed;
 }
 
-[name="key"]:checked + label {
-    box-shadow: inset 2px 2px 5px 3px #737373;
-    color:white; 
-}
+    [name="key"]:checked + label {
+        box-shadow: inset 2px 2px 5px 3px #737373;
+        color:white; 
+    }
 
-[name="key"]:checked + .blackKey {
-    background-color: #0285c3;
-    box-shadow:none;
-    color:white; 
-}
+    [name="key"]:checked + .blackKey {
+        background-color: #0285c3;
+        box-shadow:none;
+        color:white; 
+    }
 
-[name="key"]:focus +label {
-    border-color: #222222; 
-}
+    [name="key"]:focus +label {
+        border-color: #222222; 
+    }
 
 
 .notes {

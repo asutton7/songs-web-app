@@ -134,22 +134,22 @@ button:hover {
 :global(.maximize) .timeSigLbl{display:block;}
 
 /*range input*/
-input[type=range] {
+input[type=range][name='met'] {
     -webkit-appearance: none;
     width: 60%;
     margin: 5.8px 0;
   }
-  input[type=range]:focus {
+  input[type=range][name='met']:focus {
     outline: none;
   }
-  input[type=range]::-webkit-slider-runnable-track {
+  input[type=range][name='met']::-webkit-slider-runnable-track {
     width: 60%;
     height: 8.4px;
     cursor: pointer;
     background: #dadada;
     border-radius: 1.3px;
   }
-  input[type=range]::-webkit-slider-thumb {
+  input[type=range][name='met']::-webkit-slider-thumb {
     height: 20px;
     width: 19px;
     border-radius: 50px;
@@ -158,24 +158,24 @@ input[type=range] {
     -webkit-appearance: none;
     margin-top: -6px;
   }
-  input[type=range]:focus::-webkit-slider-runnable-track {
+  input[type=range][name='met']:focus::-webkit-slider-runnable-track {
     background: #dadada;
   }
-  input[type=range]::-moz-range-track {
+  input[type=range][name='met']::-moz-range-track {
     width: 60%;
     height: 8.4px;
     cursor: pointer;
     background: #dadada;
     border-radius: 1.3px;
   }
-  input[type=range]::-moz-range-thumb {
+  input[type=range][name='met']::-moz-range-thumb {
     height: 20px;
     width: 19px;
     border-radius: 50px;
     background: #0285c3;
     cursor: pointer;
   }
-  input[type=range]::-ms-track {
+  input[type=range][name='met']::-ms-track {
     width: 60%;
     height: 8.4px;
     cursor: pointer;
@@ -183,15 +183,15 @@ input[type=range] {
     border-color: transparent;
     color: transparent;
   }
-  input[type=range]::-ms-fill-lower {
+  input[type=range][name='met']::-ms-fill-lower {
     background: #0285c3;
     border-radius: 2.6px;
   }
-  input[type=range]::-ms-fill-upper {
+  input[type=range][name='met']::-ms-fill-upper {
     background: #2abaff;
     border-radius: 2.6px;
   }
-  input[type=range]::-ms-thumb {
+  input[type=range][name='met']::-ms-thumb {
     height: 20px;
     width: 19px;
     border-radius: 50px;
@@ -199,10 +199,10 @@ input[type=range] {
     cursor: pointer;
     height: 8.4px;
   }
-  input[type=range]:focus::-ms-fill-lower {
+  input[type=range][name='met']:focus::-ms-fill-lower {
     background: #dadada;
   }
-  input[type=range]:focus::-ms-fill-upper {
+  input[type=range][name='met']:focus::-ms-fill-upper {
     background: #dadada;
   }
   

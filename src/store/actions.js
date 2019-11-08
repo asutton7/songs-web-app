@@ -22,8 +22,8 @@ export const saveMoveToFolder = (openFolderKeys, openFolderTitles, songsArray) =
 
 export const moveToFolder = (targetIndex, openFolders, folderTitles) => {
     return dispatch => {
-        const db = firebase.firestore();
-        let songsArray = [];
+        let currentLength = openFolders.length;
+
         if(targetIndex < 0) {
             openFolders = [];
             folderTitles = [];
@@ -31,6 +31,13 @@ export const moveToFolder = (targetIndex, openFolders, folderTitles) => {
             openFolders.splice(targetIndex+1);
             folderTitles.splice(targetIndex+1);
         }
+        if(openFolders.length === currentLength) {
+            // do not cause side effects if in same directory.
+            return;
+        }
+
+        const db = firebase.firestore();
+        let songsArray = [];
 
         console.log(openFolders);
         db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+openFolders.join(''))
