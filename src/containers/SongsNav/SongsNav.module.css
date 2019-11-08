@@ -1,36 +1,36 @@
 .SongsNav {
-    max-height: 100%;
+    margin-bottom: 50px;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
 }
-.CurrentDir {
-    text-align:left;
-    color:#f4ebee;
-    margin-left:1%;
-    position: fixed;
-    top:5%;
-    left:22%;
-    width: 8%;
-    z-index: 10;
-    margin:0;
-    background-color:#4bc0d7a3;
-    border-radius:10px;
-    box-shadow: 2px 2px 15px 2px #f4ebee;
-    padding:0px 10px
 
+.SongsNav:after {
+    content:"";
+    
 }
+
+.buttonsFlex {
+    display:flex;
+    position:absolute;
+    bottom:5%;
+    right: 3%;
+    align-items: flex-end;
+    transition:1s;
+}
+
+.buttonsFlex button {
+    margin: 0px 10px;
+}
+
 .CurrentDirHead {
     font-size:1.2rem;
     text-align:center;
 }
 
 .addNewSongBtn {
-    position: fixed;
-    bottom: 5%;
-    right: 2%;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 6rem;
+    width: 6rem;
     border-radius: 100%;
     background: #008cce;
     border: white 2px solid;
@@ -40,16 +40,17 @@
 }
 .addNewSongBtn:hover{
     cursor:pointer;
-    transform: scale(1.3);
     transition:.5s;
     background-color:#2abaff;
 }
+
+.addNewSongBtn svg {
+    height: 2rem;
+    width: 2rem;
+}
 .addNewFolderBtn {
-        position: fixed;
-        bottom: 5%;
-        right: 9%;
-        height: 3.5rem;
-        width: 3.5rem;
+        height:6rem;
+        width: 6rem;
         border-radius: 100%;
         background: #008cce;
         border: white 2px solid;
@@ -59,15 +60,15 @@
 }
 .addNewFolderBtn:hover {
     cursor:pointer;
-    transform:scale(1.3);
     transition:.5s;
     background-color:#2abaff;
 }
+.addNewFolderBtn svg {
+    height: 2rem;
+    width: 2rem;
+}
 
 .goBackBtn{
-    position: fixed;
-    bottom: -10%;
-    right: 16%;
     height: 3.5rem;
     width: 3.5rem;
     border-radius: 100%;
@@ -77,11 +78,16 @@
     color: white;
     transition:.5s; 
     cursor: pointer;
+    position: relative;
+    bottom: -150px;
+    visibility:hidden;
 }
 .goBackBtnVisible {
-    bottom:5%;
+    bottom:0px;
+    visibility: visible;
     transition:.5s;
 }
+
 .goBackBtn:hover{
     transition: .5s;
     background-color:#e36c77;
@@ -118,6 +124,14 @@
     background: #fff;
 }
 
+.songstrans-enter {
+    margin-left: 1000px;
+}
+
+.songstrans-enter-active{
+    margin-left: initial;
+}
+
 @keyframes AnimateIcon {
     0% {transform: rotate(0deg)}
     25% {transform: rotate(90deg)}
@@ -134,35 +148,22 @@
     100% {transform: rotate(360deg)}
 }
 
-
-@media (max-width:1000px) {
-    .addNewFolderBtn {
-        bottom: 17%;
-        right:4%;
+@media(max-width:850px) {
+    .buttonsFlex {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .addNewSongBtn {
-        right:4%;
+    .buttonsFlex button{
+        margin: 10px;
     }
-}
-
-@media(min-width: 1440px) {
-    .addNewFolderBtn {
-        height:6rem;
-        width:6rem;
-    }
-    .addNewSongBtn {
-        height:6rem;
-        width:6rem;
+    .goBackBtn {
+        right:-150px;
+        bottom:0px;
     }
 
-    .addNewFolderBtn svg {
-        height:2rem;
-        width:2rem;
-    }
-    .addNewSongBtn svg {
-        height:2rem;
-        width:2rem;
+    .goBackBtnVisible {
+        right:0px;
     }
 }
 

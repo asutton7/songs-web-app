@@ -3,6 +3,7 @@
     position: fixed;
     background-color: white;
     bottom: 50px;
+    z-index: 999;
     left: -930px;
     height: 175px;
     border-top-right-radius: 20px;
@@ -56,7 +57,14 @@
 
 }
 
+
 .Tool svg {
     height: 6rem;
     width:100%;
+}
+
+@media(max-width: 1400px) {
+    .ToolboxSlider {
+        display: none;
+    }
 }

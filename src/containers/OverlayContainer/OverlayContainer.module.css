@@ -2,9 +2,12 @@
     position: fixed;
     /* left: 20%; */
     top: 5%;
-    width: 13%;
     margin-left: 1.2%;
     z-index: 999;
     overflow: visible;
     text-align: center;
+}
+
+.overlayContainerVisible {
+    width:13%;
 }

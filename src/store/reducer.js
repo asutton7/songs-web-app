@@ -25,6 +25,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 songs: [...action.songsArr]
             }
+        case actionTypes.MOVE_TO_FOLDER: 
+            return {
+                openFolderKeys: [...action.fKeys],
+                openFolderNames: [...action.fNames],
+                songs: [...action.songsArr]
+            }
         default: return state;
     }
 }

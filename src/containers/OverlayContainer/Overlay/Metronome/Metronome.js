@@ -121,7 +121,7 @@ class Metronome extends Component {
         return(
             <React.Fragment>
                     <p className={classes.metTextVal}>{this.state.speed}</p>
-                    <input className={classes.metText} type='range' min="1" max="240" onChange={this.speedChangeHandler} value={this.state.speed}/>
+                    <input className={classes.metText} type='range' name='met' min="1" max="240" onChange={this.speedChangeHandler} value={this.state.speed}/>
                 <button className={classes.actBtns} onClick={this.toggleMetronome}>Play</button>
                 <button className={classes.actBtns} onClick={this.tap}>Tap</button>
                 <div>

@@ -1,0 +1,16 @@
+.word {
+    display: block;
+    background: none;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.word:hover {
+    transition:none;
+    color:white;
+}
