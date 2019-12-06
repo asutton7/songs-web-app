@@ -28,6 +28,10 @@ const EditorToolbar = (props) => {
     }
 
     const onStop = (recordedBlob) => {
+        if (firebase.auth().currentUser.isAnonymous) {
+            alert("You can only do this if you create an account. Click the X in the top right and sign in with Google to get started.");
+            return;
+        }
         console.log("recordedBlob:", recordedBlob);
         console.log(songStorageRef);
         let audioFile = recordedBlob.blob;

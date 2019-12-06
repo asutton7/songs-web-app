@@ -40,7 +40,7 @@ export const moveToFolder = (targetIndex, openFolders, folderTitles) => {
         let songsArray = [];
 
         console.log(openFolders);
-        db.collection("users/"+firebase.auth().currentUser.email+"/songs/"+openFolders.join(''))
+        db.collection("users/"+(firebase.auth().currentUser.isAnonymous ? "sampleuser" : firebase.auth().currentUser.email)+"/songs/"+openFolders.join(''))
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
@@ -72,7 +72,7 @@ export const drillIn = (folderKey, folderTitle, openFolders) => {
         const db = firebase.firestore();
         let songsArray = [];
         console.log("users/"+firebase.auth().currentUser.email +"/songs/"+openFolders.join(''));
-        db.collection("users/"+firebase.auth().currentUser.email +"/songs/"+openFolders.join(''))
+        db.collection("users/"+(firebase.auth().currentUser.isAnonymous ? "sampleuser" : firebase.auth().currentUser.email) +"/songs/"+openFolders.join(''))
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
@@ -108,7 +108,7 @@ export const drillOut = (openFolderKeys, openFolderNames) => {
         openFolderKeys.pop();
         openFolderNames.pop();
         console.log("users/"+firebase.auth().currentUser.email +"/songs/"+(openFolderKeys.length > 0 ? openFolderKeys.join('') : ''));
-        db.collection("users/"+firebase.auth().currentUser.email +"/songs/"+(openFolderKeys.length > 0 ? openFolderKeys.join('') : ''))
+        db.collection("users/"+(firebase.auth().currentUser.isAnonymous ? "sampleuser" : firebase.auth().currentUser.email) +"/songs/"+(openFolderKeys.length > 0 ? openFolderKeys.join('') : ''))
             .get()
             .then((querySnapshot) => {
                 querySnapshot.forEach(doc => {

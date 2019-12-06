@@ -5,6 +5,7 @@
     background-color: white;
     resize: none;
     border: none;
+    height:80vh;
     /* box-shadow: inset 3px 2px 0px 0 #0285c3; */
     font-size: 1.5rem !important;
     font: inherit;
@@ -217,3 +218,16 @@ svg {
     height: 100%;
 }
 
+@media(max-width: 750px) {
+    .wordResults, .wordText { 
+        display:none;
+    }
+    .LyricInput {
+        width:100vw;
+        height:80vh;
+    }
+    .Header{
+        width:100vw ;
+        margin-top: 1px;
+    }
+}
