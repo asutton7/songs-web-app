@@ -12,8 +12,8 @@ const Authentication = (props) => (
             </span>
             <p className={classes.googlebuttontext}>Sign in with Google</p>
         </button>
-
         </div>
+        <p style={{cursor: 'pointer', textDecoration: 'underline'}} onClick={props.anonFunc}>Or - sign in anonymously and see sample data...</p>
     </div>
 )
 export default Authentication;

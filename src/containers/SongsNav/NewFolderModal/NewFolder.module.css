@@ -1,0 +1,62 @@
+.newFolderContainer {
+    position: fixed;
+    width:15%;
+    height:12.5%;
+    top: 50%;
+    left: 50%;
+    margin-left: -7.5%;
+    margin-top: -6.25%;
+    background-color: white;
+    z-index: 999;
+    border-top-left-radius: 20px;
+    padding:20px;
+    box-shadow: 2px 2px 0px #ccc;
+    display:flex;
+    flex-direction: column;
+}
+
+
+.newFolderContainer * {
+    margin: 4px;
+    text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.newFolderText {
+    font-size:1.5rem;
+    margin:auto;
+    width:100%;
+    box-sizing:border-box;
+}
+.newFolderText:focus {
+    outline-color: #4abaff;
+}
+
+.buttonsContainer {
+    display:flex;
+    margin: 0;
+    text-align: center;
+}
+
+.buttonsContainer button {
+    border: none;
+    width:50%;
+    margin:0;
+    height:2rem;
+    flex: 1;
+    cursor:pointer;
+}
+
+.createButton {
+    background-color: #0285c3;
+    color:white;
+    border-bottom-left-radius: 20px;
+}
+.cancelButton{
+    background-color:dimgrey;
+    color:white;
+    border-bottom-right-radius: 20px;
+}
+
+

@@ -6,7 +6,6 @@ import '../../react-transitions/react-transitions.css';
 import Words from '../../api/datamuseAgent';
 import Word from './WordComponent/Word';
 import EditorToolbar from './EditorToolbar/EditorToolbar';
-import OverlayContainer from '../OverlayContainer/OverlayContainer';
 
 class SongEditor extends Component {
     state = {
@@ -15,7 +14,8 @@ class SongEditor extends Component {
         fetchedWords: [],
         loadingWords: false,
         selectedWord: '',
-        songId: ""
+        songId: "",
+        song: null
     }
 
     componentDidMount() {
@@ -27,7 +27,7 @@ class SongEditor extends Component {
             title: null
         };
         console.log("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join('') + this.props.match.params.id)
-        db.collection("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join(''))
+        db.collection("users/" + (firebase.auth().currentUser.isAnonymous ? "sampleuser" : firebase.auth().currentUser.email) + "/songs/" + this.props.openFolderKeys.join(''))
             .doc(this.props.match.params.id)
             .get()
             .then((doc) => {
@@ -35,7 +35,7 @@ class SongEditor extends Component {
                 song.dateLastUpdated = doc.data().dateLastUpdated.toDate().toLocaleString();
                 song.lyrics = doc.data().lyrics;
                 song.title = doc.data().title;
-                this.setState({ lyrics: song.lyrics, title: song.title, songId: song.id });
+                this.setState({ lyrics: song.lyrics, title: song.title, songId: song.id, song: song });
             });
     }
 
@@ -59,19 +59,47 @@ class SongEditor extends Component {
         }
     }
 
+    updateTitle = (event) => {
+        this.setState({title: event.target.value});
+    }
 
+    saveSong = () => {
+        const db = firebase.firestore();
+        db.collection("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join(''))
+            .doc(this.props.match.params.id)
+            .update({
+                lyrics: this.state.lyrics,
+                title: this.state.title,
+                dateLastUpdated: new Date()
+            }).then(() => {
+                //display toast to let user know that the song was saved.
+            })
+    }
+
+    exit = () => {
+        const db = firebase.firestore();
+        db.collection("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join(''))
+        .doc(this.props.match.params.id)
+        .update({
+            lyrics: this.state.lyrics,
+            title: this.state.title,
+            dateLastUpdated: new Date()
+        }).then(() => {
+            this.props.history.push('/');
+        })
+    }
 
     render() {
 
         return (
             <div className={[classes.Container, 'react-transition', 'fade-in'].join(' ')}>
                 <div style={{ display: 'flex' }}>
-                    <h1 className={classes.Header}>{this.state.title}</h1>
-                    <input value={this.state.selectedWord} onChange={this.selectedWordChangeHandler} className={classes.wordText} placeholder="Type a word here, or highlight a word in your lyrics."></input>
+                    <input type='text' value={this.state.title} className={classes.Header} onChange={this.updateTitle}></input>
+                    <input value={this.state.selectedWord} onChange={this.selectedWordChangeHandler} className={classes.wordText} placeholder="Type a word here."></input>
 
 
                 </div>
-                <div style={{ display: 'flex', height: '65%' }}>
+                <div style={{ display: 'flex', height: '75%' }}>
                     <textarea placeholder="Write your lyrics here!" className={classes.LyricInput} cols='max' onChange={(event) => this.changeHandler(event)} value={this.state.lyrics}></textarea>
                     <div className={classes.wordResults}>
                         <div style={{ display: 'flex' }}>
@@ -95,7 +123,7 @@ class SongEditor extends Component {
                                 </div>}
                     </div>
                 </div>
-                <EditorToolbar songId={this.state.songId}/>
+                <EditorToolbar songId={this.state.songId} saveSong={this.saveSong} exit={this.exit}/>
             </div>
         );
 

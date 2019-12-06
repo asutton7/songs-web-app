@@ -51,6 +51,10 @@ class Layout extends Component {
     googleAuthSignOut =() => {
         firebase.auth().signOut();
     }
+
+    anonymousSignIn = () => {
+        firebase.auth().signInAnonymously();
+    }
     
     render () {    
         let content = null;
@@ -79,7 +83,7 @@ class Layout extends Component {
                             </React.Fragment>
                         </IfFirebaseAuthed>
                         <IfFirebaseUnAuthed>
-                            <Authentication className={classes.MainContent} authFunc={this.googleAuthSignIn}/>
+                            <Authentication className={classes.MainContent} authFunc={this.googleAuthSignIn} anonFunc={this.anonymousSignIn}/>
                         </IfFirebaseUnAuthed>
                 </React.Fragment>
             )

@@ -1,6 +1,6 @@
-import axios, {axiosResponse} from 'axios';
+import axios from 'axios';
 
-axios.defaults.baseURL = "http://api.datamuse.com";
+axios.defaults.baseURL = "https://cors.io/?https://api.datamuse.com/";
 
 const responseBody = (response) => response.data;
 

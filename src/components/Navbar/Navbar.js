@@ -34,9 +34,9 @@ const navbar = (props) => {
             <p className={classes.breadCrumbsContainer}>{rootBreadCrumb}{breadCrumbs}</p>
             <ul>
                 <NavLink to="/"><NavbarTool key="0" icon='library_music' /></NavLink>
-                <NavbarTool key="3" icon='settings' />
+                {/* <NavbarTool key="3" icon='settings' /> */}
                 <IfFirebaseAuthed>
-                    <NavbarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='arrow_back' />
+                    <NavbarTool onClick={props.signOutFunc} key="4" title="Sign Out" icon='close' />
                 </IfFirebaseAuthed>
             </ul>
         </div>
