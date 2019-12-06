@@ -60,10 +60,18 @@ class SongEditor extends Component {
     }
 
     updateTitle = (event) => {
+        if (firebase.auth().currentUser.isAnonymous) {
+            alert("You can only do this if you create an account. Click the X in the top right and sign in with Google to get started.");
+            return;
+        }
         this.setState({title: event.target.value});
     }
 
     saveSong = () => {
+        if (firebase.auth().currentUser.isAnonymous) {
+            alert("You can only do this if you create an account. Click the X in the top right and sign in with Google to get started.");
+            return;
+        }
         const db = firebase.firestore();
         db.collection("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join(''))
             .doc(this.props.match.params.id)
@@ -76,7 +84,10 @@ class SongEditor extends Component {
             })
     }
 
-    exit = () => {
+    exit = () => {       
+        if (firebase.auth().currentUser.isAnonymous) {
+            this.props.history.push('/');
+        }
         const db = firebase.firestore();
         db.collection("users/" + firebase.auth().currentUser.email + "/songs/" + this.props.openFolderKeys.join(''))
         .doc(this.props.match.params.id)
