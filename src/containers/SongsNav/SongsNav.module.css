@@ -3,6 +3,10 @@
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
+    height:auto;
+    width:100vw;
+    padding:0;
+
 }
 
 .SongsNav:after {
@@ -12,7 +16,7 @@
 
 .buttonsFlex {
     display:flex;
-    position:absolute;
+    position:fixed;
     bottom:5%;
     right: 3%;
     align-items: flex-end;
@@ -23,10 +27,6 @@
     margin: 0px 10px;
 }
 
-.CurrentDirHead {
-    font-size:1.2rem;
-    text-align:center;
-}
 
 .addNewSongBtn {
     height: 6rem;
@@ -164,13 +164,5 @@
 
     .goBackBtnVisible {
         right:0px;
-    }
-}
-
-@media (max-width:550px) {
-    .CurrentDir {
-        margin-top: 56px;
-        left:0;
-        margin-left:13% !important;
     }
 }

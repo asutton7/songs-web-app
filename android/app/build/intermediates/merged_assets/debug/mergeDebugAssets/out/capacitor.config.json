@@ -1,7 +1,0 @@
-{
-  "appId": "com.songs.app",
-  "appName": "songs",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "build"
-}

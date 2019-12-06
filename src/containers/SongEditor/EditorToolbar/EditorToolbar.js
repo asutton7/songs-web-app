@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import classes from './EditorToolbar.module.css';
 import {ReactMic} from 'react-mic';
 import firebase from '../../../firebase';
@@ -7,19 +7,20 @@ import {withRouter} from 'react-router-dom';
 const EditorToolbar = (props) => {
     const [recording, setRecording] = useState(false);
     const [firebaseUrl, setFirebaseUrl] = useState("");
-    const [audioCurrentDuration, setAudioCurrentDuration] = useState('0:00');
-    const [audioCurrentTime, setAudioCurrentTime] = useState('0');
-    const [audioDuration, setAudioDuration] = useState('0:00');
-    const [initialAudioLoad, setInitialAudioLoad] = useState(true);
-    const [playing, setPlaying] = useState(false);
+
     let storageRef = firebase.storage().ref();
     let userStorageRef = storageRef.child(`songs/${firebase.auth().currentUser.email}`);
     let songStorageRef = userStorageRef.child(props.match.params.id);
     
     useEffect( () => {
-        songStorageRef.getDownloadURL().then((url) => {
-            setFirebaseUrl(url);
-        });
+        try{
+            songStorageRef.getDownloadURL().then((url) => {
+                setFirebaseUrl(url);
+            }, () => {});
+        } catch(ex) {
+            console.log(ex.message);
+        }
+
     }, [songStorageRef]);
 
     const recordingChange = () => {
@@ -35,14 +36,6 @@ const EditorToolbar = (props) => {
         });
     };
 
-    // const playAudio = () => {
-    //     audioPlayer.play();
-    //     setPlaying(true);
-    // }
-
-    // const stopAudio = () => {
-    //     setPlaying(false);
-    // }
 
     return (
         <div className={classes.Toolbar}>
@@ -54,8 +47,8 @@ const EditorToolbar = (props) => {
             {/* <input name="songSeek" type='range' value={audioCurrentTime} min='0' max={audioDuration ? audioDuration : 100  }/>
             <p>{audioDuration}</p> */}
             <div className={classes.actionButtons}>
-                <button className={classes.saveButton}>Save</button>
-                <button className={classes.deleteButton}>Delete</button>
+                <button className={classes.saveButton} onClick={props.saveSong}>Save</button>
+                <button onClick={props.exit}>Exit</button>
             </div>
             <ReactMic 
                 record={recording}

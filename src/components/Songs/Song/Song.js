@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Song.module.css';
-import MoreVert from '@material-ui/icons/MoreVert'
+import Delete from '@material-ui/icons/Delete'
 import Folder from '@material-ui/icons/Folder';
 import {connect} from 'react-redux';
 
@@ -13,9 +13,9 @@ const song = (props) => {
     }
 
     return (
-        <div onClick={() => props.songClick(props.id, props.title, [...props.openFolderKeys])} className={props.isSong ? styles.Song : [styles.Song, styles.Folder].join(' ')}>
+        <div onClick={(e) => props.songClick(props.id, props.title, [...props.openFolderKeys], e)} className={props.isSong ? styles.Song : [styles.Song, styles.Folder].join(' ')}>
             <p className={styles.SongTitle}>{props.title}</p>
-            <MoreVert className={styles.optionsBtn}/>
+            <Delete className={styles.optionsBtn} onClick={(e) => props.deleteSong(props.id, e)}/>
             <p className={styles.Lyrics}>{LorF}</p>
             <div className={styles.InfoRow}>
                 <div className={styles.SongDate}>{props.lastUpdated}</div>
