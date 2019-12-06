@@ -12,6 +12,7 @@ class Tuner extends Component {
     playNote = (evt) => {
         if(this.state.context) {
             this.stopNote();
+            evt.target.removeAttribute('checked');
         } 
         if(this.state.currentNote === evt.target.value){
             this.stopNote();
