@@ -10,7 +10,7 @@ I started building this before learning hooks, so a lot of the components are st
   *Synonym and Rhyming dictionary built in editor page on Desktop site
 
 ## Current Limitations
-I built this to be an application that is used by Songwriters, but I am not willing to invest in the infrastructure unless there is true interest. There are no limitations to the amount of songs / folders you can create, but you can only upload recordings that are less than 10mb. Recordings are saved as .mp3, which should prevent this from being a huge problem as .mp3 files are pretty small. 
+I built this to be an application that is used by Songwriters, but I am not willing to invest in the infrastructure unless there is true interest. There are no limitations to the amount of songs / folders you can create, but you can only upload recordings that are less than 10mb. Recordings are saved as .mp3, which should prevent this from being a huge problem as .mp3 files are relatively small. 
 
 ## The Site
 The site is hosted here: https://songwriterssuite-1f53f.web.app/
