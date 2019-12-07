@@ -6,10 +6,10 @@ import NewSong from '@material-ui/icons/Add';
 import NewFolder from '@material-ui/icons/CreateNewFolder';
 import GoBack from '@material-ui/icons/ArrowBack'
 import { withRouter } from 'react-router-dom';
-import EmptySongsNav from './EmptySongsNav/EmptySongsNav';
+import EmptySongsNav from '../../components/EmptySongsNav/EmptySongsNav';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions'
-import NewFolderModal from './NewFolderModal/NewFolder';
+import NewFolderModal from '../../components/NewFolderModal/NewFolder';
 
 class SongsNav extends Component {
     state = {
