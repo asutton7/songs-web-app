@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://cors.io/?https://api.datamuse.com/";
+axios.defaults.baseURL = "https://cors-anywhere.herokuapp.com/http://api.datamuse.com/";
 
 const responseBody = (response) => response.data;
 
